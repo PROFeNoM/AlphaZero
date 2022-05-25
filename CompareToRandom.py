@@ -70,7 +70,7 @@ class Compare:
 
 
 if __name__ == '__main__':
-    model = load_model('./model/trained_aug_half.h5')
+    model = load_model('./model/best.h5')
     Compare(model).compare()
     K.clear_session()
     del model
