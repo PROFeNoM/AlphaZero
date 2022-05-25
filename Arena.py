@@ -5,7 +5,7 @@ from MCTS import get_action_coord
 from keras.models import load_model
 from keras.backend import clear_session
 
-ARENA_GAME_COUNT = 15
+from Config import ARENA_GAME_COUNT
 
 
 def _play_game(black_action_fn, white_action_fn):

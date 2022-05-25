@@ -6,13 +6,7 @@ from go import Position, N
 from NNet import NETWORK_INPUT_SHAPE
 import features
 
-MCTS_SIMULATIONS = 100
-C_PUCT = 1
-
-DIRICHLET_ALPHA = 0.03
-DIRICHLET_EPSILON = 0.25
-
-V_RESIGN = 0.99
+from Config import MCTS_SIMULATIONS, C_PUCT, DIRICHLET_ALPHA, DIRICHLET_EPSILON
 
 
 def get_legal_actions(moves):

@@ -7,14 +7,16 @@ from tqdm import tqdm
 
 import features
 from go import Position
-from MCTS import get_action_prob, get_legal_actions, flat_to_coord
+from MCTS import get_action_prob, \
+    get_legal_actions, \
+    flat_to_coord
 from NNet import NETWORK_OUTPUT_SIZE
 from keras.backend import clear_session
 
-SELFPLAY_GAMES = 10
-SELFPLAY_TEMPERATURE_THRESHOLD = 15
-SELFPLAY_TEMPERATURE_EARLY = 1
-SELFPLAY_TEMPERATURE_TERMINAL = 0
+from Config import SELFPLAY_GAMES, \
+    SELFPLAY_TEMPERATURE_THRESHOLD, \
+    SELFPLAY_TEMPERATURE_EARLY, \
+    SELFPLAY_TEMPERATURE_TERMINAL
 
 
 class SelfPlay:
@@ -42,11 +44,11 @@ class SelfPlay:
             game_history.append([input_features, pi, None])
 
             flat = get_legal_actions(state.all_legal_moves())[np.argmax(scores)]
-            #print(f"Move chose {flat}, i.e., {flat_to_coord(flat)}")
+            # print(f"Move chose {flat}, i.e., {flat_to_coord(flat)}")
             state = state.play_move(flat_to_coord(flat))
-            #print(state)
+            # print(state)
             number_of_moves += 1
-        #print(f"Number of moves: {number_of_moves}")
+        # print(f"Number of moves: {number_of_moves}")
         v = state.result()
         for i in range(len(game_history)):
             game_history[i][2] = v
@@ -71,4 +73,3 @@ class SelfPlay:
         del self.model
 
         return self.history
-

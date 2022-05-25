@@ -11,6 +11,7 @@ Simple Reinforcement Learning for the 9x9 Go board game with AlphaZero, based on
 * `NNet.py`: AlphaZero neural network architecture.
 * `SelfPlay.py`: Generate neural network input features playing games with currently the best agent to be used in the unsupervised learning process.
 * `Train.py`: Reinforcement learning training procedure.
+* `Config.py`: Configuration file used to set the hyper-parameters.
 
 ### Supervised learning
 

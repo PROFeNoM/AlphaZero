@@ -1,6 +1,6 @@
 import numpy as np
-from tensorflow.python.keras.models import load_model
-from tensorflow.keras import backend as K
+from keras.models import load_model
+from keras.backend import clear_session
 
 import go
 from MCTS import get_action_coord
@@ -72,5 +72,5 @@ class Compare:
 if __name__ == '__main__':
     model = load_model('./model/best.h5')
     Compare(model).compare()
-    K.clear_session()
+    clear_session()
     del model

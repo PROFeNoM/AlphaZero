@@ -1,7 +1,13 @@
 import pickle
 
 import numpy as np
-from keras.layers import Activation, Add, BatchNormalization, Conv2D, Dense, GlobalAveragePooling2D, Input
+from keras.layers import Activation, \
+    Add, \
+    BatchNormalization, \
+    Conv2D, \
+    Dense, \
+    GlobalAveragePooling2D, \
+    Input
 from keras.models import Model
 from keras.optimizer_v2.gradient_descent import SGD
 from keras.regularizers import l2
@@ -11,15 +17,12 @@ import os
 from keras.callbacks import CSVLogger
 from keras.models import load_model
 
-import go
-
-NETWORK_FILTERS = 64  # original = 256
-NETWORK_RESIDUAL_NUM = 9  # original = 19
-NETWORK_INPUT_SHAPE = (go.N, go.N, 9)  # original = (go.N, go.N, 17)
-NETWORK_OUTPUT_SIZE = (go.N * go.N) + 1
-
-TRAINING_EPOCHS = 15
-TRAINING_LOG_PATH = 'training_log.csv'
+from Config import NETWORK_FILTERS, \
+    NETWORK_RESIDUAL_NUM, \
+    NETWORK_INPUT_SHAPE, \
+    NETWORK_OUTPUT_SIZE, \
+    TRAINING_LOG_PATH, \
+    TRAINING_EPOCHS
 
 opt = SGD(learning_rate=0.001, momentum=0.9)
 history_logger = CSVLogger(TRAINING_LOG_PATH, separator=',', append=True)

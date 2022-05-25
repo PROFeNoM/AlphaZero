@@ -5,8 +5,8 @@ from Arena import Arena
 from SelfPlay import SelfPlay
 from NNet import NNet
 
-TRAINING_ITERATIONS = 20
-SAVE_THRESHOLD = 0.55
+from Config import TRAINING_ITERATIONS, \
+    SAVE_THRESHOLD
 
 
 class Train:
@@ -34,5 +34,5 @@ class Train:
 
 if __name__ == '__main__':
     Train().start()
-    #Arena().play_games()
-    #copy('./model/latest.h5', './model/best.h5')
+    # Arena().play_games()
+    # copy('./model/latest.h5', './model/best.h5')
