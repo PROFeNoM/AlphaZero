@@ -115,9 +115,9 @@ def get_action_prob(model, state: Position, temperature):
     if temperature == 0:
         action = np.argmax(scores)
         q = root.children[action].w / root.children[action].n
-        print("\raction : {} / legal moves: {} / scores: {} / value: {} / to_play: {}".format(action, len(scores) - 1,
-                                                                                              scores[action], q,
-                                                                                              state.to_play), end="")
+        #print("\raction : {} / legal moves: {} / scores: {} / value: {} / to_play: {}".format(action, len(scores) - 1,
+        #                                                                                      scores[action], q,
+        #                                                                                      state.to_play), end="")
         if state.recent and (state.recent[-1].move is None) and (state.result() == state.to_play):  # win if can win
             action = -1
             print("\tLast play is pass, win")

@@ -1,6 +1,8 @@
 # AlphaZero - Reinforcement Learning
 
-## Files
+Simple Reinforcement Learning with AlphaZero, based on DeepMind's AlphaGo Zero<sup>**[1]**</sup>.
+
+## Source files
 
 ### AlphaZero implementation
 
@@ -83,8 +85,51 @@ The GPU should appear in the list.
 
 ## Usage
 
-## Methods
+### Supervised learning
+
+A supervised learning process can be initiated, using GNUGo's scores to set policy's values, and win probability for the value. The process is divided in two stages:
+
+**1.** Generate the dataset.
+```shell
+python dataset_builder.py
+```
+
+**2.** Train the model.
+```shell
+python train_alphazero.py
+```
+
+This procedure will generate an initial model `trained.h5` to start with, located under `model/`.
+
+_Nota Bene_: This process can take a while to complete if using a CPU-only environnement.
+
+### Unsupervised learning
+
+The unsupervised learning process is the most important one in this project. It is the process of training a neural network to play against itself. The process is divided in three steps:
+* Self-play: Generate neural network input features from a dataset.
+* Network training: Train an initial model using the input features resulting from the dataset.
+* Comparison: Compare the newly trained model with the best one.
+
+If you want to use the unsupervised learning process, you can run the following command:
+```shell
+python Train.py
+```
+Hyper-parameters can be changed in the `Config.py` file. This process should iteratively strengthen the `best.h5` model.
+
+_Nota Bene_: This process can take a while to complete if using a CPU-only environnement.
+
+### Comparison to the random agent
+
+The best model can be compared to the random agent, using the following command:
+```shell
+python CompareToRandom.py
+```
+
+## Implementation details
 
 ## Results
 
 ## References
+
+* **[1]** Silver, David & Schrittwieser, Julian & Simonyan, Karen & Antonoglou, Ioannis & Huang, Aja & Guez, Arthur & Hubert, Thomas & Baker, Lucas & Lai, Matthew & Bolton, Adrian & Chen, Yutian & Lillicrap, Timothy & Hui, Fan & Sifre, Laurent & Driessche, George & Graepel, Thore & Hassabis, Demis. (2017). Mastering the game of Go without human knowledge. Nature. 550. 354-359. 10.1038/nature24270.
+* **[2]** Wang, Hui & Emmerich, Michael & Preuss, Mike & Plaat, Aske. (2019). Hyper-Parameter Sweep on AlphaZero General. 
