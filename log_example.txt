@@ -1,0 +1,2335 @@
+D:\anaconda3\envs\alphaZero-env\python.exe D:/Documents/AlphaZeroV5/Train.py
+2022-05-21 21:34:07.218980: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+Training:   0%|          | 0/20 [00:00<?, ?it/s]2022-05-21 21:34:08.697982: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library nvcuda.dll
+2022-05-21 21:34:08.728720: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:06:00.0 name: NVIDIA GeForce GTX 1660 SUPER computeCapability: 7.5
+coreClock: 1.815GHz coreCount: 22 deviceMemorySize: 6.00GiB deviceMemoryBandwidth: 312.97GiB/s
+2022-05-21 21:34:08.729108: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2022-05-21 21:34:08.734591: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2022-05-21 21:34:08.738217: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
+2022-05-21 21:34:08.739593: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
+2022-05-21 21:34:08.743416: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
+2022-05-21 21:34:08.745598: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
+2022-05-21 21:34:08.752830: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2022-05-21 21:34:08.753097: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2022-05-21 21:34:08.753633: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-05-21 21:34:08.761428: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x223dfa84ef0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-05-21 21:34:08.761698: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-05-21 21:34:08.761994: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:06:00.0 name: NVIDIA GeForce GTX 1660 SUPER computeCapability: 7.5
+coreClock: 1.815GHz coreCount: 22 deviceMemorySize: 6.00GiB deviceMemoryBandwidth: 312.97GiB/s
+2022-05-21 21:34:08.762390: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2022-05-21 21:34:08.762577: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2022-05-21 21:34:08.762789: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
+2022-05-21 21:34:08.762982: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
+2022-05-21 21:34:08.763173: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
+2022-05-21 21:34:08.763367: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
+2022-05-21 21:34:08.763563: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2022-05-21 21:34:08.763809: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2022-05-21 21:34:09.245767: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1257] Device interconnect StreamExecutor with strength 1 edge matrix:
+2022-05-21 21:34:09.245985: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1263]      0 
+2022-05-21 21:34:09.246109: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1276] 0:   N 
+2022-05-21 21:34:09.246370: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1402] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 4748 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:06:00.0, compute capability: 7.5)
+2022-05-21 21:34:09.249247: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x223879f11c0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2022-05-21 21:34:09.249505: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]2022-05-21 21:34:10.425480: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2022-05-21 21:34:10.646521: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2022-05-21 21:34:11.458753: W tensorflow/stream_executor/gpu/redzone_allocator.cc:314] Internal: Invoking GPU asm compilation is supported on Cuda non-Windows platforms only
+Relying on driver to perform ptx compilation. 
+Modify $PATH to customize ptxas location.
+This message will be only logged once.
+
+Self play:  10%|█         | 1/10 [06:29<58:25, 389.55s/it]	Last play is pass, win
+
+Self play:  20%|██        | 2/10 [12:34<49:59, 374.94s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  30%|███       | 3/10 [19:20<45:26, 389.43s/it]
+	Last play is pass, win
+Self play:  40%|████      | 4/10 [24:10<34:58, 349.83s/it]
+	Last play is pass, win
+Self play:  50%|█████     | 5/10 [25:21<20:47, 249.54s/it]
+Self play:  60%|██████    | 6/10 [31:58<19:58, 299.52s/it]	Last play is pass, win
+
+Self play:  70%|███████   | 7/10 [37:45<15:45, 315.07s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  80%|████████  | 8/10 [44:09<11:14, 337.07s/it]
+	Last play is pass, win
+Self play:  90%|█████████ | 9/10 [49:25<05:30, 330.42s/it]
+Self play: 100%|██████████| 10/10 [57:21<00:00, 344.15s/it]
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+39/39 [==============================] - 0s 11ms/step - loss: 4.8447 - pi_loss: 4.4472 - v_loss: 0.2708 - pi_accuracy: 0.0233 - v_accuracy: 0.4430
+Epoch 2/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.6848 - pi_loss: 4.4386 - v_loss: 0.1195 - pi_accuracy: 0.0201 - v_accuracy: 0.4735
+Epoch 3/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.6193 - pi_loss: 4.4332 - v_loss: 0.0594 - pi_accuracy: 0.0217 - v_accuracy: 0.4888
+Epoch 4/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.6153 - pi_loss: 4.4318 - v_loss: 0.0568 - pi_accuracy: 0.0209 - v_accuracy: 0.4880
+Epoch 5/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5988 - pi_loss: 4.4279 - v_loss: 0.0443 - pi_accuracy: 0.0281 - v_accuracy: 0.4936
+Epoch 6/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5849 - pi_loss: 4.4223 - v_loss: 0.0360 - pi_accuracy: 0.0241 - v_accuracy: 0.4928
+Epoch 7/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5742 - pi_loss: 4.4180 - v_loss: 0.0295 - pi_accuracy: 0.0257 - v_accuracy: 0.4968
+Epoch 8/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5664 - pi_loss: 4.4152 - v_loss: 0.0246 - pi_accuracy: 0.0233 - v_accuracy: 0.5000
+Epoch 9/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5634 - pi_loss: 4.4118 - v_loss: 0.0251 - pi_accuracy: 0.0289 - v_accuracy: 0.4992
+Epoch 10/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5590 - pi_loss: 4.4083 - v_loss: 0.0241 - pi_accuracy: 0.0241 - v_accuracy: 0.4992
+Epoch 11/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5552 - pi_loss: 4.4041 - v_loss: 0.0246 - pi_accuracy: 0.0233 - v_accuracy: 0.5000
+Epoch 12/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5514 - pi_loss: 4.4011 - v_loss: 0.0237 - pi_accuracy: 0.0233 - v_accuracy: 0.5000
+Epoch 13/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5488 - pi_loss: 4.3984 - v_loss: 0.0238 - pi_accuracy: 0.0217 - v_accuracy: 0.4984
+Epoch 14/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5440 - pi_loss: 4.3948 - v_loss: 0.0227 - pi_accuracy: 0.0289 - v_accuracy: 0.4984
+Epoch 15/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5418 - pi_loss: 4.3909 - v_loss: 0.0244 - pi_accuracy: 0.0273 - v_accuracy: 0.4992
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+Arena:   7%|▋         | 1/15 [08:46<2:02:56, 526.88s/it]Game Over -1
+Lose
+	Last play is pass, win
+Game Over -1
+Win
+
+Arena:  13%|█▎        | 2/15 [15:00<1:34:34, 436.51s/it]
+Arena:  20%|██        | 3/15 [22:50<1:30:25, 452.10s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  27%|██▋       | 4/15 [30:00<1:21:16, 443.33s/it]	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  33%|███▎      | 5/15 [38:41<1:18:31, 471.20s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  40%|████      | 6/15 [45:55<1:08:48, 458.72s/it]	Last play is pass, win
+Game Over -1
+Win
+	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  47%|████▋     | 7/15 [53:23<1:00:42, 455.27s/it]
+Arena:  53%|█████▎    | 8/15 [59:37<50:05, 429.38s/it]  Game Over -1
+Win
+
+Arena:  60%|██████    | 9/15 [1:07:15<43:49, 438.31s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  67%|██████▋   | 10/15 [1:13:27<34:48, 417.77s/it]	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  73%|███████▎  | 11/15 [1:15:06<21:20, 320.20s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  80%|████████  | 12/15 [1:22:06<17:31, 350.43s/it]Game Over -1
+Win
+
+Arena:  87%|████████▋ | 13/15 [1:29:39<12:43, 381.67s/it]	Last play is pass, win
+Game Over -1
+Lose
+Game Over -1
+Win
+
+Arena:  93%|█████████▎| 14/15 [1:37:41<06:52, 412.04s/it]
+Game Over -1
+Lose
+Evaluation result 5-0-10
+Arena: 100%|██████████| 15/15 [1:46:42<00:00, 426.85s/it]
+Training:   5%|▌         | 1/20 [2:44:15<52:01:03, 9855.95s/it]WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]
+	Last play is pass, win
+Self play:  10%|█         | 1/10 [04:48<43:13, 288.15s/it]
+Self play:  20%|██        | 2/10 [13:27<56:33, 424.15s/it]
+	Last play is pass, win
+Self play:  30%|███       | 3/10 [14:34<30:28, 261.23s/it]
+Self play:  40%|████      | 4/10 [20:03<28:46, 287.71s/it]	Last play is pass, win
+
+Self play:  50%|█████     | 5/10 [25:51<25:47, 309.49s/it]
+	Last play is pass, win
+Self play:  60%|██████    | 6/10 [31:20<21:04, 316.13s/it]
+Self play:  70%|███████   | 7/10 [35:59<15:12, 304.06s/it]	Last play is pass, win
+
+Self play:  80%|████████  | 8/10 [43:22<11:36, 348.19s/it]
+Self play:  90%|█████████ | 9/10 [48:56<05:43, 343.97s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play: 100%|██████████| 10/10 [51:50<00:00, 311.09s/it]
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+34/34 [==============================] - 0s 13ms/step - loss: 5.0562 - pi_loss: 4.4369 - v_loss: 0.4926 - pi_accuracy: 0.0189 - v_accuracy: 0.3685
+Epoch 2/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.6500 - pi_loss: 4.4282 - v_loss: 0.0951 - pi_accuracy: 0.0245 - v_accuracy: 0.4741
+Epoch 3/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.6320 - pi_loss: 4.4229 - v_loss: 0.0823 - pi_accuracy: 0.0283 - v_accuracy: 0.4684
+Epoch 4/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.6053 - pi_loss: 4.4172 - v_loss: 0.0614 - pi_accuracy: 0.0217 - v_accuracy: 0.4901
+Epoch 5/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5933 - pi_loss: 4.4132 - v_loss: 0.0534 - pi_accuracy: 0.0254 - v_accuracy: 0.4854
+Epoch 6/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5815 - pi_loss: 4.4105 - v_loss: 0.0443 - pi_accuracy: 0.0283 - v_accuracy: 0.4835
+Epoch 7/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5788 - pi_loss: 4.4073 - v_loss: 0.0449 - pi_accuracy: 0.0254 - v_accuracy: 0.4882
+Epoch 8/15
+34/34 [==============================] - 0s 10ms/step - loss: 4.6112 - pi_loss: 4.4055 - v_loss: 0.0791 - pi_accuracy: 0.0302 - v_accuracy: 0.4722
+Epoch 9/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5767 - pi_loss: 4.4047 - v_loss: 0.0454 - pi_accuracy: 0.0283 - v_accuracy: 0.4854
+Epoch 10/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5738 - pi_loss: 4.3997 - v_loss: 0.0474 - pi_accuracy: 0.0292 - v_accuracy: 0.4910
+Epoch 11/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5636 - pi_loss: 4.3974 - v_loss: 0.0396 - pi_accuracy: 0.0273 - v_accuracy: 0.4844
+Epoch 12/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5566 - pi_loss: 4.3940 - v_loss: 0.0360 - pi_accuracy: 0.0283 - v_accuracy: 0.4863
+Epoch 13/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5651 - pi_loss: 4.3952 - v_loss: 0.0433 - pi_accuracy: 0.0273 - v_accuracy: 0.4779
+Epoch 14/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5534 - pi_loss: 4.3913 - v_loss: 0.0355 - pi_accuracy: 0.0292 - v_accuracy: 0.4910
+Epoch 15/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5449 - pi_loss: 4.3882 - v_loss: 0.0301 - pi_accuracy: 0.0292 - v_accuracy: 0.4929
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+Arena:   7%|▋         | 1/15 [07:46<1:48:44, 466.03s/it]	Last play is pass, win
+Game Over -1
+Lose
+	Last play is pass, win
+
+Arena:  13%|█▎        | 2/15 [10:21<1:01:23, 283.36s/it]Game Over -1
+Win
+
+Arena:  20%|██        | 3/15 [18:12<1:13:49, 369.11s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  27%|██▋       | 4/15 [24:31<1:08:24, 373.10s/it]	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  33%|███▎      | 5/15 [31:50<1:06:08, 396.89s/it]	Last play is pass, win
+Game Over -1
+Lose
+Game Over 1
+Lose
+
+Arena:  40%|████      | 6/15 [40:03<1:04:25, 429.46s/it]
+	Last play is pass, win
+Game Over -1
+Lose
+Arena:  47%|████▋     | 7/15 [41:12<41:32, 311.59s/it]  
+	Last play is pass, win
+Game Over -1
+Win
+Arena:  53%|█████▎    | 8/15 [47:53<39:39, 339.94s/it]
+Arena:  60%|██████    | 9/15 [55:37<37:53, 378.97s/it]	Last play is pass, win
+Game Over -1
+Lose
+	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  67%|██████▋   | 10/15 [1:00:52<29:54, 358.97s/it]
+Arena:  73%|███████▎  | 11/15 [1:03:11<19:26, 291.60s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  80%|████████  | 12/15 [1:12:01<18:12, 364.30s/it]Game Over 1
+Lose
+	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  87%|████████▋ | 13/15 [1:15:25<10:31, 315.72s/it]
+	Last play is pass, win
+Game Over -1
+Win
+Arena:  93%|█████████▎| 14/15 [1:21:18<05:27, 327.02s/it]
+	Last play is pass, win
+Game Over 1
+Win
+Evaluation result 4-0-11
+Arena: 100%|██████████| 15/15 [1:28:36<00:00, 354.46s/it]
+Training:  10%|█         | 2/20 [5:04:54<45:06:41, 9022.32s/it]WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]
+Self play:  10%|█         | 1/10 [07:31<1:07:47, 451.96s/it]
+Self play:  20%|██        | 2/10 [12:57<50:18, 377.32s/it]  	Last play is pass, win
+
+Self play:  30%|███       | 3/10 [21:05<49:55, 427.92s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  40%|████      | 4/10 [24:56<35:02, 350.46s/it]
+	Last play is pass, win
+Self play:  50%|█████     | 5/10 [28:20<24:47, 297.43s/it]
+Self play:  60%|██████    | 6/10 [35:45<23:11, 347.78s/it]
+	Last play is pass, win
+Self play:  70%|███████   | 7/10 [39:05<14:58, 299.47s/it]
+Self play:  80%|████████  | 8/10 [44:19<10:07, 303.98s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  90%|█████████ | 9/10 [48:28<04:46, 286.84s/it]
+	Last play is pass, win
+Self play: 100%|██████████| 10/10 [55:02<00:00, 330.25s/it]
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+36/36 [==============================] - 0s 12ms/step - loss: 4.9859 - pi_loss: 4.4444 - v_loss: 0.4149 - pi_accuracy: 0.0235 - v_accuracy: 0.3758
+Epoch 2/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.6885 - pi_loss: 4.4406 - v_loss: 0.1212 - pi_accuracy: 0.0183 - v_accuracy: 0.4516
+Epoch 3/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.6346 - pi_loss: 4.4339 - v_loss: 0.0740 - pi_accuracy: 0.0201 - v_accuracy: 0.4690
+Epoch 4/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.6369 - pi_loss: 4.4320 - v_loss: 0.0782 - pi_accuracy: 0.0192 - v_accuracy: 0.4743
+Epoch 5/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.6130 - pi_loss: 4.4272 - v_loss: 0.0592 - pi_accuracy: 0.0166 - v_accuracy: 0.4804
+Epoch 6/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.6006 - pi_loss: 4.4245 - v_loss: 0.0495 - pi_accuracy: 0.0183 - v_accuracy: 0.4839
+Epoch 7/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5962 - pi_loss: 4.4191 - v_loss: 0.0505 - pi_accuracy: 0.0166 - v_accuracy: 0.4865
+Epoch 8/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5957 - pi_loss: 4.4150 - v_loss: 0.0541 - pi_accuracy: 0.0235 - v_accuracy: 0.4804
+Epoch 9/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5958 - pi_loss: 4.4123 - v_loss: 0.0569 - pi_accuracy: 0.0183 - v_accuracy: 0.4830
+Epoch 10/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5899 - pi_loss: 4.4098 - v_loss: 0.0536 - pi_accuracy: 0.0183 - v_accuracy: 0.4856
+Epoch 11/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5816 - pi_loss: 4.4071 - v_loss: 0.0479 - pi_accuracy: 0.0218 - v_accuracy: 0.4865
+Epoch 12/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5828 - pi_loss: 4.4041 - v_loss: 0.0522 - pi_accuracy: 0.0192 - v_accuracy: 0.4847
+Epoch 13/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5783 - pi_loss: 4.4015 - v_loss: 0.0502 - pi_accuracy: 0.0209 - v_accuracy: 0.4856
+Epoch 14/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5700 - pi_loss: 4.3973 - v_loss: 0.0461 - pi_accuracy: 0.0227 - v_accuracy: 0.4882
+Epoch 15/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5645 - pi_loss: 4.3950 - v_loss: 0.0429 - pi_accuracy: 0.0209 - v_accuracy: 0.4839
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+Arena:   7%|▋         | 1/15 [08:01<1:52:27, 481.94s/it]Game Over 1
+Win
+
+Arena:  13%|█▎        | 2/15 [14:58<1:36:04, 443.39s/it]	Last play is pass, win
+Game Over -1
+Win
+
+Arena:  20%|██        | 3/15 [22:50<1:31:16, 456.37s/it]Game Over 1
+Win
+Game Over 1
+Lose
+
+Arena:  27%|██▋       | 4/15 [31:18<1:27:26, 476.93s/it]
+Arena:  33%|███▎      | 5/15 [37:46<1:14:08, 444.87s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  40%|████      | 6/15 [46:42<1:11:21, 475.73s/it]Game Over 1
+Lose
+	Last play is pass, win
+
+Arena:  47%|████▋     | 7/15 [53:03<59:18, 444.85s/it]  Game Over -1
+Lose
+	Last play is pass, win
+
+Arena:  53%|█████▎    | 8/15 [54:01<37:32, 321.74s/it]Game Over -1
+Win
+	Last play is pass, win
+
+Arena:  60%|██████    | 9/15 [57:41<28:59, 289.97s/it]Game Over -1
+Lose
+
+Arena:  67%|██████▋   | 10/15 [1:04:18<26:55, 323.03s/it]	Last play is pass, win
+Game Over -1
+Win
+Game Over -1
+Lose
+
+Arena:  73%|███████▎  | 11/15 [1:12:22<24:49, 372.29s/it]
+Arena:  80%|████████  | 12/15 [1:17:39<17:46, 355.34s/it]	Last play is pass, win
+Game Over -1
+Win
+	Last play is pass, win
+
+Arena:  87%|████████▋ | 13/15 [1:24:28<12:23, 371.67s/it]Game Over 1
+Win
+
+Arena:  93%|█████████▎| 14/15 [1:28:21<05:29, 329.71s/it]	Last play is pass, win
+Game Over -1
+Win
+
+Arena: 100%|██████████| 15/15 [1:35:11<00:00, 380.79s/it]
+Training:  15%|█▌        | 3/20 [7:35:19<42:36:39, 9023.51s/it]	Last play is pass, win
+Game Over -1
+Lose
+Evaluation result 8-0-7
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]
+Self play:  10%|█         | 1/10 [06:57<1:02:37, 417.53s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  20%|██        | 2/10 [09:22<34:15, 256.99s/it]  
+Self play:  30%|███       | 3/10 [15:47<36:50, 315.72s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  40%|████      | 4/10 [21:20<32:14, 322.48s/it]
+	Last play is pass, win
+Self play:  50%|█████     | 5/10 [25:35<24:51, 298.24s/it]
+	Last play is pass, win
+Self play:  60%|██████    | 6/10 [32:46<22:53, 343.32s/it]
+	Last play is pass, win
+Self play:  70%|███████   | 7/10 [38:55<17:34, 351.61s/it]
+Self play:  80%|████████  | 8/10 [44:06<11:17, 338.74s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  90%|█████████ | 9/10 [50:55<06:00, 360.55s/it]
+Self play: 100%|██████████| 10/10 [55:49<00:00, 334.93s/it]
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.9181 - pi_loss: 4.4276 - v_loss: 0.3638 - pi_accuracy: 0.0217 - v_accuracy: 0.3932
+Epoch 2/15
+36/36 [==============================] - 0s 8ms/step - loss: 4.6397 - pi_loss: 4.4173 - v_loss: 0.0956 - pi_accuracy: 0.0226 - v_accuracy: 0.4601
+Epoch 3/15
+36/36 [==============================] - 0s 8ms/step - loss: 4.6122 - pi_loss: 4.4137 - v_loss: 0.0717 - pi_accuracy: 0.0243 - v_accuracy: 0.4774
+Epoch 4/15
+36/36 [==============================] - 0s 8ms/step - loss: 4.5989 - pi_loss: 4.4121 - v_loss: 0.0600 - pi_accuracy: 0.0200 - v_accuracy: 0.4800
+Epoch 5/15
+36/36 [==============================] - 0s 8ms/step - loss: 4.5880 - pi_loss: 4.4079 - v_loss: 0.0534 - pi_accuracy: 0.0260 - v_accuracy: 0.4844
+Epoch 6/15
+36/36 [==============================] - 0s 8ms/step - loss: 4.5846 - pi_loss: 4.4039 - v_loss: 0.0540 - pi_accuracy: 0.0260 - v_accuracy: 0.4835
+Epoch 7/15
+36/36 [==============================] - 0s 8ms/step - loss: 4.5770 - pi_loss: 4.4010 - v_loss: 0.0494 - pi_accuracy: 0.0208 - v_accuracy: 0.4792
+Epoch 8/15
+36/36 [==============================] - 0s 8ms/step - loss: 4.5705 - pi_loss: 4.3992 - v_loss: 0.0447 - pi_accuracy: 0.0243 - v_accuracy: 0.4844
+Epoch 9/15
+36/36 [==============================] - 0s 8ms/step - loss: 4.5747 - pi_loss: 4.3969 - v_loss: 0.0512 - pi_accuracy: 0.0269 - v_accuracy: 0.4844
+Epoch 10/15
+36/36 [==============================] - 0s 8ms/step - loss: 4.5649 - pi_loss: 4.3935 - v_loss: 0.0448 - pi_accuracy: 0.0286 - v_accuracy: 0.4835
+Epoch 11/15
+36/36 [==============================] - 0s 8ms/step - loss: 4.5570 - pi_loss: 4.3903 - v_loss: 0.0401 - pi_accuracy: 0.0269 - v_accuracy: 0.4887
+Epoch 12/15
+36/36 [==============================] - 0s 8ms/step - loss: 4.5500 - pi_loss: 4.3900 - v_loss: 0.0335 - pi_accuracy: 0.0243 - v_accuracy: 0.4913
+Epoch 13/15
+36/36 [==============================] - 0s 8ms/step - loss: 4.5501 - pi_loss: 4.3890 - v_loss: 0.0345 - pi_accuracy: 0.0269 - v_accuracy: 0.4913
+Epoch 14/15
+36/36 [==============================] - 0s 8ms/step - loss: 4.5465 - pi_loss: 4.3845 - v_loss: 0.0354 - pi_accuracy: 0.0243 - v_accuracy: 0.4887
+Epoch 15/15
+36/36 [==============================] - 0s 8ms/step - loss: 4.5361 - pi_loss: 4.3805 - v_loss: 0.0290 - pi_accuracy: 0.0278 - v_accuracy: 0.4965
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+Arena:   7%|▋         | 1/15 [05:27<1:16:28, 327.73s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  13%|█▎        | 2/15 [10:11<1:05:27, 302.12s/it]	Last play is pass, win
+Game Over -1
+Win
+	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  20%|██        | 3/15 [17:08<1:10:51, 354.33s/it]
+Arena:  27%|██▋       | 4/15 [23:17<1:06:00, 360.05s/it]	Last play is pass, win
+Game Over -1
+Win
+	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  33%|███▎      | 5/15 [29:54<1:02:13, 373.34s/it]
+	Last play is pass, win
+Game Over -1
+Win
+Arena:  40%|████      | 6/15 [37:35<1:00:29, 403.30s/it]
+Arena:  47%|████▋     | 7/15 [43:55<52:44, 395.59s/it]  	Last play is pass, win
+Game Over 1
+Win
+
+Arena:  53%|█████▎    | 8/15 [48:50<42:24, 363.54s/it]	Last play is pass, win
+Game Over -1
+Win
+	Last play is pass, win
+Game Over 1
+Win
+
+Arena:  60%|██████    | 9/15 [55:14<37:00, 370.05s/it]
+	Last play is pass, win
+Arena:  67%|██████▋   | 10/15 [56:43<23:36, 283.23s/it]Game Over -1
+Win
+	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  73%|███████▎  | 11/15 [1:03:35<21:30, 322.63s/it]
+Game Over -1
+Win
+Arena:  80%|████████  | 12/15 [1:11:56<18:51, 377.05s/it]
+	Last play is pass, win
+Game Over -1
+Lose
+Arena:  87%|████████▋ | 13/15 [1:12:33<09:07, 273.88s/it]
+	Last play is pass, win
+Game Over -1
+Win
+Arena:  93%|█████████▎| 14/15 [1:14:08<03:39, 219.84s/it]
+Game Over -1
+Lose
+Evaluation result 9-0-6
+Saved new model
+Arena: 100%|██████████| 15/15 [1:21:43<00:00, 326.91s/it]
+Training:  20%|██        | 4/20 [9:53:02<38:46:14, 8723.38s/it]WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]
+	Last play is pass, win
+Self play:  10%|█         | 1/10 [06:42<1:00:25, 402.86s/it]
+Self play:  20%|██        | 2/10 [13:59<56:21, 422.72s/it]  	Last play is pass, win
+
+Self play:  30%|███       | 3/10 [20:42<48:15, 413.68s/it]	Last play is pass, win
+
+Self play:  40%|████      | 4/10 [26:20<38:22, 383.81s/it]	Last play is pass, win
+
+Self play:  50%|█████     | 5/10 [27:05<21:48, 261.69s/it]
+Self play:  60%|██████    | 6/10 [33:02<19:36, 294.18s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  70%|███████   | 7/10 [40:42<17:24, 348.30s/it]
+	Last play is pass, win
+Self play:  80%|████████  | 8/10 [43:11<09:29, 284.75s/it]
+Self play:  90%|█████████ | 9/10 [48:37<04:57, 297.80s/it]	Last play is pass, win
+
+Self play: 100%|██████████| 10/10 [55:37<00:00, 333.71s/it]
+	Last play is pass, win
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+39/39 [==============================] - 0s 12ms/step - loss: 5.0102 - pi_loss: 4.4376 - v_loss: 0.4461 - pi_accuracy: 0.0171 - v_accuracy: 0.3725
+Epoch 2/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.6938 - pi_loss: 4.4330 - v_loss: 0.1342 - pi_accuracy: 0.0155 - v_accuracy: 0.4531
+Epoch 3/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.6447 - pi_loss: 4.4239 - v_loss: 0.0943 - pi_accuracy: 0.0187 - v_accuracy: 0.4694
+Epoch 4/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.6287 - pi_loss: 4.4190 - v_loss: 0.0832 - pi_accuracy: 0.0212 - v_accuracy: 0.4760
+Epoch 5/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.6160 - pi_loss: 4.4168 - v_loss: 0.0727 - pi_accuracy: 0.0204 - v_accuracy: 0.4711
+Epoch 6/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.6074 - pi_loss: 4.4103 - v_loss: 0.0706 - pi_accuracy: 0.0236 - v_accuracy: 0.4768
+Epoch 7/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5991 - pi_loss: 4.4084 - v_loss: 0.0642 - pi_accuracy: 0.0236 - v_accuracy: 0.4817
+Epoch 8/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5864 - pi_loss: 4.4024 - v_loss: 0.0575 - pi_accuracy: 0.0228 - v_accuracy: 0.4817
+Epoch 9/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5734 - pi_loss: 4.3995 - v_loss: 0.0474 - pi_accuracy: 0.0220 - v_accuracy: 0.4849
+Epoch 10/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5829 - pi_loss: 4.3973 - v_loss: 0.0592 - pi_accuracy: 0.0236 - v_accuracy: 0.4743
+Epoch 11/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5785 - pi_loss: 4.3943 - v_loss: 0.0577 - pi_accuracy: 0.0236 - v_accuracy: 0.4866
+Epoch 12/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5629 - pi_loss: 4.3886 - v_loss: 0.0479 - pi_accuracy: 0.0228 - v_accuracy: 0.4825
+Epoch 13/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5604 - pi_loss: 4.3876 - v_loss: 0.0464 - pi_accuracy: 0.0244 - v_accuracy: 0.4857
+Epoch 14/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5561 - pi_loss: 4.3822 - v_loss: 0.0476 - pi_accuracy: 0.0253 - v_accuracy: 0.4857
+Epoch 15/15
+39/39 [==============================] - 0s 9ms/step - loss: 4.5580 - pi_loss: 4.3802 - v_loss: 0.0514 - pi_accuracy: 0.0244 - v_accuracy: 0.4808
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+Arena:   7%|▋         | 1/15 [06:22<1:29:08, 382.04s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  13%|█▎        | 2/15 [12:07<1:18:03, 360.25s/it]	Last play is pass, win
+Game Over -1
+Win
+
+Arena:  20%|██        | 3/15 [18:02<1:11:36, 358.04s/it]	Last play is pass, win
+Game Over 1
+Win
+	Last play is pass, win
+Game Over -1
+Win
+
+Arena:  27%|██▋       | 4/15 [24:08<1:06:14, 361.35s/it]
+Arena:  33%|███▎      | 5/15 [31:08<1:03:45, 382.53s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  40%|████      | 6/15 [36:30<54:15, 361.72s/it]  	Last play is pass, win
+Game Over -1
+Win
+	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  47%|████▋     | 7/15 [43:13<50:01, 375.24s/it]
+	Last play is pass, win
+Game Over -1
+Win
+Arena:  53%|█████▎    | 8/15 [50:20<45:41, 391.70s/it]
+	Last play is pass, win
+Game Over -1
+Lose
+Arena:  60%|██████    | 9/15 [53:39<33:09, 331.56s/it]
+	Last play is pass, win
+Game Over -1
+Win
+Arena:  67%|██████▋   | 10/15 [56:57<24:11, 290.22s/it]
+Arena:  73%|███████▎  | 11/15 [1:05:59<24:29, 367.26s/it]Game Over 1
+Win
+Game Over 1
+Lose
+
+Arena:  80%|████████  | 12/15 [1:14:54<20:55, 418.43s/it]
+	Last play is pass, win
+Game Over -1
+Lose
+Arena:  87%|████████▋ | 13/15 [1:23:08<14:42, 441.24s/it]
+Game Over 1
+Lose
+Arena:  93%|█████████▎| 14/15 [1:31:09<07:33, 453.15s/it]
+	Last play is pass, win
+Game Over 1
+Win
+Evaluation result 8-0-7
+Arena: 100%|██████████| 15/15 [1:37:48<00:00, 391.21s/it]
+Training:  25%|██▌       | 5/20 [12:26:39<37:05:18, 8901.24s/it]WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]
+Self play:  10%|█         | 1/10 [03:30<31:37, 210.86s/it]	Last play is pass, win
+
+Self play:  20%|██        | 2/10 [09:53<41:37, 312.14s/it]	Last play is pass, win
+
+Self play:  30%|███       | 3/10 [15:46<38:33, 330.55s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  40%|████      | 4/10 [22:43<36:28, 364.69s/it]
+	Last play is pass, win
+Self play:  50%|█████     | 5/10 [29:01<30:47, 369.41s/it]
+Self play:  60%|██████    | 6/10 [37:05<27:13, 408.48s/it]
+Self play:  70%|███████   | 7/10 [39:36<16:12, 324.29s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  80%|████████  | 8/10 [46:58<12:03, 361.80s/it]
+	Last play is pass, win
+Self play:  90%|█████████ | 9/10 [53:21<06:08, 368.49s/it]
+	Last play is pass, win
+Self play: 100%|██████████| 10/10 [59:37<00:00, 357.74s/it]
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+40/40 [==============================] - 0s 12ms/step - loss: 4.9096 - pi_loss: 4.4412 - v_loss: 0.3419 - pi_accuracy: 0.0190 - v_accuracy: 0.3869
+Epoch 2/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.6719 - pi_loss: 4.4354 - v_loss: 0.1099 - pi_accuracy: 0.0150 - v_accuracy: 0.4620
+Epoch 3/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.6418 - pi_loss: 4.4295 - v_loss: 0.0857 - pi_accuracy: 0.0166 - v_accuracy: 0.4707
+Epoch 4/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.6158 - pi_loss: 4.4240 - v_loss: 0.0653 - pi_accuracy: 0.0134 - v_accuracy: 0.4771
+Epoch 5/15
+40/40 [==============================] - 0s 10ms/step - loss: 4.6166 - pi_loss: 4.4189 - v_loss: 0.0711 - pi_accuracy: 0.0158 - v_accuracy: 0.4802
+Epoch 6/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.6156 - pi_loss: 4.4187 - v_loss: 0.0704 - pi_accuracy: 0.0229 - v_accuracy: 0.4739
+Epoch 7/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.6068 - pi_loss: 4.4120 - v_loss: 0.0683 - pi_accuracy: 0.0237 - v_accuracy: 0.4802
+Epoch 8/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5891 - pi_loss: 4.4104 - v_loss: 0.0522 - pi_accuracy: 0.0245 - v_accuracy: 0.4850
+Epoch 9/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5901 - pi_loss: 4.4048 - v_loss: 0.0589 - pi_accuracy: 0.0214 - v_accuracy: 0.4810
+Epoch 10/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5859 - pi_loss: 4.4039 - v_loss: 0.0556 - pi_accuracy: 0.0206 - v_accuracy: 0.4810
+Epoch 11/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5734 - pi_loss: 4.4000 - v_loss: 0.0469 - pi_accuracy: 0.0237 - v_accuracy: 0.4842
+Epoch 12/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5691 - pi_loss: 4.3952 - v_loss: 0.0475 - pi_accuracy: 0.0269 - v_accuracy: 0.4826
+Epoch 13/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5665 - pi_loss: 4.3926 - v_loss: 0.0475 - pi_accuracy: 0.0253 - v_accuracy: 0.4842
+Epoch 14/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5636 - pi_loss: 4.3880 - v_loss: 0.0492 - pi_accuracy: 0.0332 - v_accuracy: 0.4834
+Epoch 15/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5625 - pi_loss: 4.3893 - v_loss: 0.0468 - pi_accuracy: 0.0301 - v_accuracy: 0.4873
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+Arena:   7%|▋         | 1/15 [06:36<1:32:31, 396.53s/it]	Last play is pass, win
+Game Over 1
+Win
+
+Arena:  13%|█▎        | 2/15 [12:33<1:20:56, 373.55s/it]	Last play is pass, win
+Game Over -1
+Win
+
+Arena:  20%|██        | 3/15 [18:27<1:12:53, 364.47s/it]	Last play is pass, win
+Game Over 1
+Win
+
+Arena:  27%|██▋       | 4/15 [25:22<1:10:26, 384.20s/it]	Last play is pass, win
+Game Over 1
+Lose
+	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  33%|███▎      | 5/15 [26:44<45:53, 275.38s/it]
+	Last play is pass, win
+Game Over -1
+Win
+Arena:  40%|████      | 6/15 [29:08<34:36, 230.77s/it]
+	Last play is pass, win
+Game Over -1
+Lose
+Arena:  47%|████▋     | 7/15 [34:36<34:58, 262.34s/it]
+	Last play is pass, win
+Game Over -1
+Win
+Arena:  53%|█████▎    | 8/15 [41:12<35:34, 304.94s/it]
+Game Over 1
+Win
+Arena:  60%|██████    | 9/15 [48:57<35:29, 354.99s/it]
+	Last play is pass, win
+Game Over -1
+Win
+Arena:  67%|██████▋   | 10/15 [55:17<30:14, 362.93s/it]
+Arena:  73%|███████▎  | 11/15 [57:16<19:12, 288.08s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  80%|████████  | 12/15 [1:03:57<16:07, 322.43s/it]	Last play is pass, win
+Game Over -1
+Win
+	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  87%|████████▋ | 13/15 [1:08:45<10:24, 312.01s/it]
+	Last play is pass, win
+Game Over -1
+Win
+Arena:  93%|█████████▎| 14/15 [1:15:17<05:36, 336.30s/it]
+Arena: 100%|██████████| 15/15 [1:21:45<00:00, 327.06s/it]
+Training:  30%|███       | 6/20 [14:48:14<34:04:45, 8763.23s/it]	Last play is pass, win
+Game Over -1
+Lose
+Evaluation result 9-0-6
+Saved new model
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]
+Self play:  10%|█         | 1/10 [06:40<1:00:02, 400.25s/it]	Last play is pass, win
+
+Self play:  20%|██        | 2/10 [12:20<48:38, 364.81s/it]  	Last play is pass, win
+	Last play is pass, win
+
+Self play:  30%|███       | 3/10 [14:33<30:11, 258.85s/it]
+	Last play is pass, win
+Self play:  40%|████      | 4/10 [19:29<27:21, 273.59s/it]
+	Last play is pass, win
+Self play:  50%|█████     | 5/10 [25:46<25:54, 310.83s/it]
+Self play:  60%|██████    | 6/10 [31:30<21:29, 322.41s/it]	Last play is pass, win
+
+Self play:  70%|███████   | 7/10 [39:44<18:55, 378.41s/it]
+	Last play is pass, win
+Self play:  80%|████████  | 8/10 [43:44<11:08, 334.31s/it]
+	Last play is pass, win
+Self play:  90%|█████████ | 9/10 [45:56<04:31, 271.18s/it]
+	Last play is pass, win
+Self play: 100%|██████████| 10/10 [52:04<00:00, 312.45s/it]
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+36/36 [==============================] - 0s 13ms/step - loss: 4.9049 - pi_loss: 4.4224 - v_loss: 0.3561 - pi_accuracy: 0.0204 - v_accuracy: 0.3950
+Epoch 2/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.6217 - pi_loss: 4.4125 - v_loss: 0.0828 - pi_accuracy: 0.0177 - v_accuracy: 0.4668
+Epoch 3/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.6002 - pi_loss: 4.4048 - v_loss: 0.0690 - pi_accuracy: 0.0195 - v_accuracy: 0.4756
+Epoch 4/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5675 - pi_loss: 4.3998 - v_loss: 0.0413 - pi_accuracy: 0.0221 - v_accuracy: 0.4863
+Epoch 5/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5669 - pi_loss: 4.3948 - v_loss: 0.0457 - pi_accuracy: 0.0239 - v_accuracy: 0.4880
+Epoch 6/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5746 - pi_loss: 4.3952 - v_loss: 0.0531 - pi_accuracy: 0.0275 - v_accuracy: 0.4783
+Epoch 7/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5623 - pi_loss: 4.3928 - v_loss: 0.0433 - pi_accuracy: 0.0213 - v_accuracy: 0.4810
+Epoch 8/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5582 - pi_loss: 4.3895 - v_loss: 0.0424 - pi_accuracy: 0.0266 - v_accuracy: 0.4880
+Epoch 9/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5511 - pi_loss: 4.3840 - v_loss: 0.0408 - pi_accuracy: 0.0319 - v_accuracy: 0.4845
+Epoch 10/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5392 - pi_loss: 4.3791 - v_loss: 0.0339 - pi_accuracy: 0.0266 - v_accuracy: 0.4872
+Epoch 11/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5398 - pi_loss: 4.3746 - v_loss: 0.0389 - pi_accuracy: 0.0310 - v_accuracy: 0.4907
+Epoch 12/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5279 - pi_loss: 4.3718 - v_loss: 0.0297 - pi_accuracy: 0.0319 - v_accuracy: 0.4898
+Epoch 13/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5211 - pi_loss: 4.3684 - v_loss: 0.0265 - pi_accuracy: 0.0292 - v_accuracy: 0.4934
+Epoch 14/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5269 - pi_loss: 4.3640 - v_loss: 0.0366 - pi_accuracy: 0.0301 - v_accuracy: 0.4872
+Epoch 15/15
+36/36 [==============================] - 0s 9ms/step - loss: 4.5224 - pi_loss: 4.3603 - v_loss: 0.0359 - pi_accuracy: 0.0337 - v_accuracy: 0.4898
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+Arena:   7%|▋         | 1/15 [08:34<1:59:56, 514.07s/it]Game Over -1
+Lose
+
+Arena:  13%|█▎        | 2/15 [15:38<1:39:55, 461.23s/it]	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  20%|██        | 3/15 [21:12<1:20:39, 403.33s/it]	Last play is pass, win
+Game Over 1
+Win
+
+Arena:  27%|██▋       | 4/15 [27:02<1:10:05, 382.32s/it]	Last play is pass, win
+Game Over 1
+Lose
+Game Over 1
+Win
+
+Arena:  33%|███▎      | 5/15 [35:23<1:10:49, 424.98s/it]
+Arena:  40%|████      | 6/15 [45:10<1:11:59, 479.98s/it]Game Over 1
+Lose
+
+Arena:  47%|████▋     | 7/15 [52:07<1:01:16, 459.51s/it]	Last play is pass, win
+Game Over 1
+Win
+	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  53%|█████▎    | 8/15 [57:57<49:31, 424.54s/it]
+	Last play is pass, win
+Game Over 1
+Win
+Arena:  60%|██████    | 9/15 [1:03:00<38:40, 386.73s/it]
+Game Over 1
+Lose
+Arena:  67%|██████▋   | 10/15 [1:11:47<35:49, 429.86s/it]
+	Last play is pass, win
+Game Over 1
+Win
+Arena:  73%|███████▎  | 11/15 [1:17:08<26:26, 396.61s/it]
+	Last play is pass, win
+Game Over 1
+Lose
+Arena:  80%|████████  | 12/15 [1:21:52<18:06, 362.29s/it]
+Arena:  87%|████████▋ | 13/15 [1:28:08<12:13, 366.55s/it]	Last play is pass, win
+Game Over 1
+Win
+	Last play is pass, win
+Game Over -1
+Win
+
+Arena:  93%|█████████▎| 14/15 [1:35:40<06:32, 392.32s/it]
+Arena: 100%|██████████| 15/15 [1:41:57<00:00, 407.85s/it]
+Training:  35%|███▌      | 7/20 [17:22:28<32:13:25, 8923.51s/it]	Last play is pass, win
+Game Over -1
+Lose
+Evaluation result 7-0-8
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]
+	Last play is pass, win
+Self play:  10%|█         | 1/10 [06:05<54:46, 365.16s/it]
+	Last play is pass, win
+Self play:  20%|██        | 2/10 [13:11<53:30, 401.31s/it]
+Self play:  30%|███       | 3/10 [18:46<43:17, 371.03s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  40%|████      | 4/10 [25:29<38:20, 383.39s/it]
+	Last play is pass, win
+Self play:  50%|█████     | 5/10 [30:39<29:46, 357.22s/it]
+	Last play is pass, win
+Self play:  60%|██████    | 6/10 [36:53<24:11, 362.91s/it]
+Self play:  70%|███████   | 7/10 [43:43<18:54, 378.33s/it]	Last play is pass, win
+
+Self play:  80%|████████  | 8/10 [51:05<13:17, 398.52s/it]	Last play is pass, win
+
+Self play:  90%|█████████ | 9/10 [58:18<06:49, 409.26s/it]
+Self play: 100%|██████████| 10/10 [1:07:07<00:00, 402.77s/it]
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+47/47 [==============================] - 0s 10ms/step - loss: 4.7592 - pi_loss: 4.4029 - v_loss: 0.2299 - pi_accuracy: 0.0200 - v_accuracy: 0.4209
+Epoch 2/15
+47/47 [==============================] - 0s 9ms/step - loss: 4.5828 - pi_loss: 4.3942 - v_loss: 0.0623 - pi_accuracy: 0.0287 - v_accuracy: 0.4716
+Epoch 3/15
+47/47 [==============================] - 0s 9ms/step - loss: 4.5498 - pi_loss: 4.3873 - v_loss: 0.0362 - pi_accuracy: 0.0260 - v_accuracy: 0.4877
+Epoch 4/15
+47/47 [==============================] - 0s 9ms/step - loss: 4.5386 - pi_loss: 4.3810 - v_loss: 0.0313 - pi_accuracy: 0.0233 - v_accuracy: 0.4910
+Epoch 5/15
+47/47 [==============================] - 0s 9ms/step - loss: 4.5290 - pi_loss: 4.3747 - v_loss: 0.0280 - pi_accuracy: 0.0314 - v_accuracy: 0.4883
+Epoch 6/15
+47/47 [==============================] - 0s 9ms/step - loss: 4.5209 - pi_loss: 4.3680 - v_loss: 0.0266 - pi_accuracy: 0.0327 - v_accuracy: 0.4937
+Epoch 7/15
+47/47 [==============================] - 0s 9ms/step - loss: 4.5150 - pi_loss: 4.3639 - v_loss: 0.0247 - pi_accuracy: 0.0334 - v_accuracy: 0.4930
+Epoch 8/15
+47/47 [==============================] - 0s 9ms/step - loss: 4.4994 - pi_loss: 4.3550 - v_loss: 0.0181 - pi_accuracy: 0.0307 - v_accuracy: 0.4950
+Epoch 9/15
+47/47 [==============================] - 0s 9ms/step - loss: 4.4950 - pi_loss: 4.3514 - v_loss: 0.0174 - pi_accuracy: 0.0360 - v_accuracy: 0.4963
+Epoch 10/15
+47/47 [==============================] - 0s 9ms/step - loss: 4.4869 - pi_loss: 4.3434 - v_loss: 0.0172 - pi_accuracy: 0.0354 - v_accuracy: 0.4957
+Epoch 11/15
+47/47 [==============================] - 0s 9ms/step - loss: 4.4847 - pi_loss: 4.3407 - v_loss: 0.0178 - pi_accuracy: 0.0354 - v_accuracy: 0.4950
+Epoch 12/15
+47/47 [==============================] - 0s 9ms/step - loss: 4.4729 - pi_loss: 4.3324 - v_loss: 0.0143 - pi_accuracy: 0.0354 - v_accuracy: 0.4977
+Epoch 13/15
+47/47 [==============================] - 0s 9ms/step - loss: 4.4694 - pi_loss: 4.3251 - v_loss: 0.0182 - pi_accuracy: 0.0367 - v_accuracy: 0.4957
+Epoch 14/15
+47/47 [==============================] - 0s 9ms/step - loss: 4.4554 - pi_loss: 4.3150 - v_loss: 0.0142 - pi_accuracy: 0.0354 - v_accuracy: 0.4957
+Epoch 15/15
+47/47 [==============================] - 0s 9ms/step - loss: 4.4499 - pi_loss: 4.3079 - v_loss: 0.0158 - pi_accuracy: 0.0354 - v_accuracy: 0.4963
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+	Last play is pass, win
+Game Over -1
+Lose
+Arena:   7%|▋         | 1/15 [07:16<1:41:46, 436.15s/it]
+	Last play is pass, win
+Arena:  13%|█▎        | 2/15 [10:35<1:04:22, 297.10s/it]Game Over -1
+Win
+	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  20%|██        | 3/15 [16:48<1:06:16, 331.35s/it]
+	Last play is pass, win
+Arena:  27%|██▋       | 4/15 [22:17<1:00:34, 330.42s/it]Game Over -1
+Win
+Game Over -1
+Lose
+
+Arena:  33%|███▎      | 5/15 [29:53<1:02:39, 375.92s/it]
+	Last play is pass, win
+Game Over 1
+Lose
+Arena:  40%|████      | 6/15 [36:44<58:10, 387.79s/it]
+Arena:  47%|████▋     | 7/15 [41:30<47:16, 354.52s/it]	Last play is pass, win
+Game Over -1
+Lose
+	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  53%|█████▎    | 8/15 [49:05<45:06, 386.58s/it]
+Arena:  60%|██████    | 9/15 [57:22<42:06, 421.16s/it]Game Over 1
+Win
+
+Arena:  67%|██████▋   | 10/15 [1:05:24<36:39, 439.90s/it]	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  73%|███████▎  | 11/15 [1:10:49<26:58, 404.61s/it]	Last play is pass, win
+Game Over 1
+Win
+
+Arena:  80%|████████  | 12/15 [1:17:48<20:27, 409.15s/it]	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  87%|████████▋ | 13/15 [1:26:02<14:29, 434.79s/it]Game Over 1
+Win
+
+Arena:  93%|█████████▎| 14/15 [1:34:21<07:34, 454.08s/it]	Last play is pass, win
+Game Over 1
+Lose
+	Last play is pass, win
+Game Over 1
+Win
+Evaluation result 6-0-9
+
+Arena: 100%|██████████| 15/15 [1:42:25<00:00, 409.70s/it]
+Training:  40%|████      | 8/20 [20:12:13<31:05:03, 9325.27s/it]WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]
+Self play:  10%|█         | 1/10 [07:03<1:03:28, 423.12s/it]	Last play is pass, win
+
+Self play:  20%|██        | 2/10 [15:02<1:00:51, 456.44s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  30%|███       | 3/10 [20:21<45:56, 393.72s/it]
+Self play:  40%|████      | 4/10 [25:58<37:06, 371.10s/it]	Last play is pass, win
+
+Self play:  50%|█████     | 5/10 [31:37<29:57, 359.47s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  60%|██████    | 6/10 [39:20<26:19, 394.79s/it]
+Self play:  70%|███████   | 7/10 [47:27<21:14, 424.81s/it]
+Self play:  80%|████████  | 8/10 [56:25<15:21, 460.94s/it]
+Self play:  90%|█████████ | 9/10 [1:01:43<06:56, 416.16s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play: 100%|██████████| 10/10 [1:07:42<00:00, 406.29s/it]
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+44/44 [==============================] - 1s 15ms/step - loss: 4.9356 - pi_loss: 4.4083 - v_loss: 0.4010 - pi_accuracy: 0.0201 - v_accuracy: 0.3695
+Epoch 2/15
+44/44 [==============================] - 1s 12ms/step - loss: 4.6052 - pi_loss: 4.3981 - v_loss: 0.0807 - pi_accuracy: 0.0165 - v_accuracy: 0.4687
+Epoch 3/15
+44/44 [==============================] - 0s 11ms/step - loss: 4.5791 - pi_loss: 4.3942 - v_loss: 0.0586 - pi_accuracy: 0.0173 - v_accuracy: 0.4759
+Epoch 4/15
+44/44 [==============================] - 0s 11ms/step - loss: 4.5719 - pi_loss: 4.3913 - v_loss: 0.0542 - pi_accuracy: 0.0194 - v_accuracy: 0.4781
+Epoch 5/15
+44/44 [==============================] - 0s 10ms/step - loss: 4.5581 - pi_loss: 4.3852 - v_loss: 0.0466 - pi_accuracy: 0.0223 - v_accuracy: 0.4831
+Epoch 6/15
+44/44 [==============================] - 0s 9ms/step - loss: 4.5512 - pi_loss: 4.3823 - v_loss: 0.0425 - pi_accuracy: 0.0194 - v_accuracy: 0.4845
+Epoch 7/15
+44/44 [==============================] - 0s 9ms/step - loss: 4.5504 - pi_loss: 4.3783 - v_loss: 0.0458 - pi_accuracy: 0.0201 - v_accuracy: 0.4845
+Epoch 8/15
+44/44 [==============================] - 0s 10ms/step - loss: 4.5403 - pi_loss: 4.3745 - v_loss: 0.0395 - pi_accuracy: 0.0223 - v_accuracy: 0.4896
+Epoch 9/15
+44/44 [==============================] - 0s 10ms/step - loss: 4.5331 - pi_loss: 4.3708 - v_loss: 0.0360 - pi_accuracy: 0.0230 - v_accuracy: 0.4867
+Epoch 10/15
+44/44 [==============================] - 0s 9ms/step - loss: 4.5395 - pi_loss: 4.3673 - v_loss: 0.0459 - pi_accuracy: 0.0216 - v_accuracy: 0.4889
+Epoch 11/15
+44/44 [==============================] - 0s 10ms/step - loss: 4.5298 - pi_loss: 4.3600 - v_loss: 0.0436 - pi_accuracy: 0.0230 - v_accuracy: 0.4881
+Epoch 12/15
+44/44 [==============================] - 0s 9ms/step - loss: 4.5243 - pi_loss: 4.3599 - v_loss: 0.0382 - pi_accuracy: 0.0194 - v_accuracy: 0.4889
+Epoch 13/15
+44/44 [==============================] - 0s 9ms/step - loss: 4.5207 - pi_loss: 4.3584 - v_loss: 0.0361 - pi_accuracy: 0.0273 - v_accuracy: 0.4867
+Epoch 14/15
+44/44 [==============================] - 0s 10ms/step - loss: 4.5122 - pi_loss: 4.3522 - v_loss: 0.0339 - pi_accuracy: 0.0237 - v_accuracy: 0.4889
+Epoch 15/15
+44/44 [==============================] - 0s 11ms/step - loss: 4.5081 - pi_loss: 4.3477 - v_loss: 0.0342 - pi_accuracy: 0.0230 - v_accuracy: 0.4903
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+Arena:   7%|▋         | 1/15 [05:10<1:12:26, 310.43s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  13%|█▎        | 2/15 [12:14<1:21:45, 377.36s/it]	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  20%|██        | 3/15 [20:20<1:25:20, 426.74s/it]Game Over -1
+Lose
+	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  27%|██▋       | 4/15 [25:45<1:10:55, 386.89s/it]
+	Last play is pass, win
+Game Over -1
+Lose
+Arena:  33%|███▎      | 5/15 [31:15<1:01:01, 366.16s/it]
+Arena:  40%|████      | 6/15 [38:09<57:22, 382.54s/it]  	Last play is pass, win
+Game Over 1
+Lose
+	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  47%|████▋     | 7/15 [46:23<55:52, 419.05s/it]
+	Last play is pass, win
+Game Over -1
+Win
+Arena:  53%|█████▎    | 8/15 [48:37<38:17, 328.17s/it]
+Game Over -1
+Lose
+Arena:  60%|██████    | 9/15 [56:49<37:57, 379.53s/it]
+Arena:  67%|██████▋   | 10/15 [1:05:04<34:35, 415.19s/it]Game Over -1
+Win
+
+Arena:  73%|███████▎  | 11/15 [1:07:00<21:33, 323.36s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  80%|████████  | 12/15 [1:13:54<17:33, 351.06s/it]	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  87%|████████▋ | 13/15 [1:16:55<09:59, 299.58s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  93%|█████████▎| 14/15 [1:25:21<06:01, 361.97s/it]Game Over -1
+Win
+
+Arena: 100%|██████████| 15/15 [1:31:33<00:00, 366.24s/it]
+Training:  45%|████▌     | 9/20 [22:51:44<28:43:42, 9402.01s/it]	Last play is pass, win
+Game Over 1
+Win
+Evaluation result 4-0-11
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]
+Self play:  10%|█         | 1/10 [08:53<1:20:02, 533.61s/it]
+	Last play is pass, win
+Self play:  20%|██        | 2/10 [16:00<1:02:45, 470.71s/it]
+	Last play is pass, win
+Self play:  30%|███       | 3/10 [21:19<46:51, 401.66s/it]
+Self play:  40%|████      | 4/10 [30:10<45:16, 452.77s/it]
+Self play:  50%|█████     | 5/10 [36:55<36:16, 435.35s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  60%|██████    | 6/10 [43:54<28:39, 429.85s/it]
+	Last play is pass, win
+Self play:  70%|███████   | 7/10 [50:22<20:48, 416.09s/it]
+Self play:  80%|████████  | 8/10 [57:52<14:13, 426.92s/it]	Last play is pass, win
+
+Self play:  90%|█████████ | 9/10 [1:04:38<07:00, 420.25s/it]	Last play is pass, win
+
+Self play: 100%|██████████| 10/10 [1:12:28<00:00, 434.84s/it]
+	Last play is pass, win
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+50/50 [==============================] - 1s 12ms/step - loss: 4.8754 - pi_loss: 4.4098 - v_loss: 0.3392 - pi_accuracy: 0.0235 - v_accuracy: 0.4118
+Epoch 2/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.6229 - pi_loss: 4.4034 - v_loss: 0.0932 - pi_accuracy: 0.0235 - v_accuracy: 0.4664
+Epoch 3/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.5894 - pi_loss: 4.3959 - v_loss: 0.0671 - pi_accuracy: 0.0235 - v_accuracy: 0.4772
+Epoch 4/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.5624 - pi_loss: 4.3924 - v_loss: 0.0436 - pi_accuracy: 0.0254 - v_accuracy: 0.4873
+Epoch 5/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.5448 - pi_loss: 4.3881 - v_loss: 0.0304 - pi_accuracy: 0.0228 - v_accuracy: 0.4898
+Epoch 6/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.5390 - pi_loss: 4.3832 - v_loss: 0.0295 - pi_accuracy: 0.0247 - v_accuracy: 0.4898
+Epoch 7/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.5353 - pi_loss: 4.3803 - v_loss: 0.0287 - pi_accuracy: 0.0247 - v_accuracy: 0.4911
+Epoch 8/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.5275 - pi_loss: 4.3764 - v_loss: 0.0249 - pi_accuracy: 0.0254 - v_accuracy: 0.4943
+Epoch 9/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.5206 - pi_loss: 4.3703 - v_loss: 0.0241 - pi_accuracy: 0.0305 - v_accuracy: 0.4956
+Epoch 10/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.5157 - pi_loss: 4.3661 - v_loss: 0.0235 - pi_accuracy: 0.0254 - v_accuracy: 0.4930
+Epoch 11/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.5166 - pi_loss: 4.3645 - v_loss: 0.0258 - pi_accuracy: 0.0279 - v_accuracy: 0.4918
+Epoch 12/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.5104 - pi_loss: 4.3585 - v_loss: 0.0258 - pi_accuracy: 0.0279 - v_accuracy: 0.4911
+Epoch 13/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.5013 - pi_loss: 4.3555 - v_loss: 0.0197 - pi_accuracy: 0.0273 - v_accuracy: 0.4968
+Epoch 14/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.4992 - pi_loss: 4.3470 - v_loss: 0.0261 - pi_accuracy: 0.0292 - v_accuracy: 0.4905
+Epoch 15/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.4974 - pi_loss: 4.3453 - v_loss: 0.0259 - pi_accuracy: 0.0330 - v_accuracy: 0.4924
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+Arena:   7%|▋         | 1/15 [00:30<07:10, 30.76s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  13%|█▎        | 2/15 [07:46<58:14, 268.81s/it]	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  20%|██        | 3/15 [14:52<1:08:06, 340.58s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  27%|██▋       | 4/15 [22:12<1:09:38, 379.90s/it]	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  33%|███▎      | 5/15 [31:03<1:12:25, 434.55s/it]Game Over 1
+Win
+	Last play is pass, win
+
+Arena:  40%|████      | 6/15 [31:42<44:59, 299.92s/it]  Game Over -1
+Win
+
+Arena:  47%|████▋     | 7/15 [40:34<50:07, 375.93s/it]Game Over 1
+Win
+	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  53%|█████▎    | 8/15 [48:21<47:12, 404.71s/it]
+	Last play is pass, win
+Game Over 1
+Win
+Arena:  60%|██████    | 9/15 [54:46<39:51, 398.54s/it]
+Arena:  67%|██████▋   | 10/15 [1:03:31<36:27, 437.58s/it]Game Over -1
+Win
+
+Arena:  73%|███████▎  | 11/15 [1:09:43<27:50, 417.56s/it]	Last play is pass, win
+Game Over 1
+Win
+
+Arena:  80%|████████  | 12/15 [1:17:47<21:53, 437.70s/it]	Last play is pass, win
+Game Over -1
+Win
+	Last play is pass, win
+
+Arena:  87%|████████▋ | 13/15 [1:19:22<11:07, 333.94s/it]Game Over -1
+Lose
+
+Arena:  93%|█████████▎| 14/15 [1:27:39<06:23, 383.15s/it]	Last play is pass, win
+Game Over 1
+Lose
+	Last play is pass, win
+Game Over -1
+Lose
+Evaluation result 7-0-8
+
+Arena: 100%|██████████| 15/15 [1:32:59<00:00, 371.98s/it]
+Training:  50%|█████     | 10/20 [25:37:25<26:34:44, 9568.44s/it]WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]
+Self play:  10%|█         | 1/10 [08:01<1:12:13, 481.48s/it]	Last play is pass, win
+
+Self play:  20%|██        | 2/10 [12:29<47:27, 355.94s/it]
+Self play:  30%|███       | 3/10 [20:49<49:13, 421.92s/it]
+Self play:  40%|████      | 4/10 [28:06<42:46, 427.74s/it]	Last play is pass, win
+
+Self play:  50%|█████     | 5/10 [34:39<34:36, 415.29s/it]	Last play is pass, win
+
+Self play:  60%|██████    | 6/10 [43:10<29:50, 447.56s/it]
+Self play:  70%|███████   | 7/10 [51:47<23:31, 470.45s/it]
+Self play:  80%|████████  | 8/10 [1:00:35<16:17, 488.78s/it]
+Self play:  90%|█████████ | 9/10 [1:06:11<07:20, 440.98s/it]	Last play is pass, win
+
+Self play: 100%|██████████| 10/10 [1:12:04<00:00, 432.43s/it]
+	Last play is pass, win
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+48/48 [==============================] - 1s 12ms/step - loss: 4.9615 - pi_loss: 4.4126 - v_loss: 0.4225 - pi_accuracy: 0.0199 - v_accuracy: 0.4013
+Epoch 2/15
+48/48 [==============================] - 0s 9ms/step - loss: 4.6090 - pi_loss: 4.4087 - v_loss: 0.0739 - pi_accuracy: 0.0172 - v_accuracy: 0.4954
+Epoch 3/15
+48/48 [==============================] - 0s 9ms/step - loss: 4.5788 - pi_loss: 4.4012 - v_loss: 0.0513 - pi_accuracy: 0.0185 - v_accuracy: 0.5007
+Epoch 4/15
+48/48 [==============================] - 0s 9ms/step - loss: 4.5800 - pi_loss: 4.3985 - v_loss: 0.0551 - pi_accuracy: 0.0179 - v_accuracy: 0.5033
+Epoch 5/15
+48/48 [==============================] - 0s 9ms/step - loss: 4.5696 - pi_loss: 4.3965 - v_loss: 0.0467 - pi_accuracy: 0.0225 - v_accuracy: 0.5079
+Epoch 6/15
+48/48 [==============================] - 0s 9ms/step - loss: 4.5611 - pi_loss: 4.3892 - v_loss: 0.0456 - pi_accuracy: 0.0232 - v_accuracy: 0.5046
+Epoch 7/15
+48/48 [==============================] - 0s 9ms/step - loss: 4.5529 - pi_loss: 4.3859 - v_loss: 0.0407 - pi_accuracy: 0.0219 - v_accuracy: 0.5106
+Epoch 8/15
+48/48 [==============================] - 0s 9ms/step - loss: 4.5490 - pi_loss: 4.3802 - v_loss: 0.0425 - pi_accuracy: 0.0232 - v_accuracy: 0.5079
+Epoch 9/15
+48/48 [==============================] - 0s 9ms/step - loss: 4.5570 - pi_loss: 4.3771 - v_loss: 0.0536 - pi_accuracy: 0.0265 - v_accuracy: 0.4974
+Epoch 10/15
+48/48 [==============================] - 0s 9ms/step - loss: 4.5440 - pi_loss: 4.3758 - v_loss: 0.0419 - pi_accuracy: 0.0232 - v_accuracy: 0.5093
+Epoch 11/15
+48/48 [==============================] - 0s 9ms/step - loss: 4.5380 - pi_loss: 4.3707 - v_loss: 0.0410 - pi_accuracy: 0.0265 - v_accuracy: 0.5119
+Epoch 12/15
+48/48 [==============================] - 0s 9ms/step - loss: 4.5304 - pi_loss: 4.3643 - v_loss: 0.0399 - pi_accuracy: 0.0291 - v_accuracy: 0.5099
+Epoch 13/15
+48/48 [==============================] - 0s 9ms/step - loss: 4.5235 - pi_loss: 4.3586 - v_loss: 0.0387 - pi_accuracy: 0.0272 - v_accuracy: 0.5113
+Epoch 14/15
+48/48 [==============================] - 0s 9ms/step - loss: 4.5192 - pi_loss: 4.3528 - v_loss: 0.0402 - pi_accuracy: 0.0278 - v_accuracy: 0.5086
+Epoch 15/15
+48/48 [==============================] - 0s 9ms/step - loss: 4.5143 - pi_loss: 4.3514 - v_loss: 0.0368 - pi_accuracy: 0.0278 - v_accuracy: 0.5119
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+	Last play is pass, win
+Game Over -1
+Lose
+Arena:   7%|▋         | 1/15 [05:20<1:14:51, 320.84s/it]
+Arena:  13%|█▎        | 2/15 [13:51<1:33:42, 432.49s/it]Game Over -1
+Win
+
+Arena:  20%|██        | 3/15 [19:21<1:17:09, 385.75s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  27%|██▋       | 4/15 [26:24<1:13:22, 400.27s/it]	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  33%|███▎      | 5/15 [33:42<1:08:58, 413.86s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  40%|████      | 6/15 [40:35<1:02:03, 413.76s/it]	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  47%|████▋     | 7/15 [47:11<54:23, 407.90s/it]  	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  53%|█████▎    | 8/15 [54:47<49:22, 423.19s/it]	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  60%|██████    | 9/15 [1:02:53<44:17, 442.93s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  67%|██████▋   | 10/15 [1:10:23<37:04, 444.92s/it]	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  73%|███████▎  | 11/15 [1:13:50<24:48, 372.25s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  80%|████████  | 12/15 [1:22:38<20:58, 419.47s/it]Game Over 1
+Lose
+
+Arena:  87%|████████▋ | 13/15 [1:25:02<11:12, 336.27s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  93%|█████████▎| 14/15 [1:33:21<06:25, 385.18s/it]	Last play is pass, win
+Game Over -1
+Win
+
+Arena: 100%|██████████| 15/15 [1:38:57<00:00, 395.80s/it]
+Training:  55%|█████▌    | 11/20 [28:28:39<24:27:39, 9784.37s/it]	Last play is pass, win
+Game Over -1
+Lose
+Evaluation result 2-0-13
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]
+Self play:  10%|█         | 1/10 [04:49<43:21, 289.05s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  20%|██        | 2/10 [12:25<51:40, 387.57s/it]
+Self play:  30%|███       | 3/10 [18:24<43:42, 374.62s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  40%|████      | 4/10 [24:07<36:11, 361.98s/it]
+Self play:  50%|█████     | 5/10 [30:20<30:29, 365.98s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  60%|██████    | 6/10 [35:30<23:08, 347.01s/it]
+	Last play is pass, win
+Self play:  70%|███████   | 7/10 [41:31<17:34, 351.66s/it]
+Self play:  80%|████████  | 8/10 [49:31<13:04, 392.34s/it]
+	Last play is pass, win
+Self play:  90%|█████████ | 9/10 [55:51<06:28, 388.63s/it]
+Self play: 100%|██████████| 10/10 [1:04:42<00:00, 388.28s/it]
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+43/43 [==============================] - 0s 9ms/step - loss: 4.7556 - pi_loss: 4.4091 - v_loss: 0.2201 - pi_accuracy: 0.0254 - v_accuracy: 0.4244
+Epoch 2/15
+43/43 [==============================] - 0s 8ms/step - loss: 4.5780 - pi_loss: 4.4004 - v_loss: 0.0512 - pi_accuracy: 0.0247 - v_accuracy: 0.4833
+Epoch 3/15
+43/43 [==============================] - 0s 8ms/step - loss: 4.5581 - pi_loss: 4.3981 - v_loss: 0.0337 - pi_accuracy: 0.0240 - v_accuracy: 0.4891
+Epoch 4/15
+43/43 [==============================] - 0s 8ms/step - loss: 4.5463 - pi_loss: 4.3896 - v_loss: 0.0304 - pi_accuracy: 0.0254 - v_accuracy: 0.4906
+Epoch 5/15
+43/43 [==============================] - 0s 8ms/step - loss: 4.5379 - pi_loss: 4.3831 - v_loss: 0.0285 - pi_accuracy: 0.0291 - v_accuracy: 0.4891
+Epoch 6/15
+43/43 [==============================] - 0s 8ms/step - loss: 4.5350 - pi_loss: 4.3797 - v_loss: 0.0289 - pi_accuracy: 0.0269 - v_accuracy: 0.4920
+Epoch 7/15
+43/43 [==============================] - 0s 8ms/step - loss: 4.5321 - pi_loss: 4.3756 - v_loss: 0.0302 - pi_accuracy: 0.0320 - v_accuracy: 0.4869
+Epoch 8/15
+43/43 [==============================] - 0s 8ms/step - loss: 4.5286 - pi_loss: 4.3755 - v_loss: 0.0268 - pi_accuracy: 0.0312 - v_accuracy: 0.4927
+Epoch 9/15
+43/43 [==============================] - 0s 8ms/step - loss: 4.5265 - pi_loss: 4.3703 - v_loss: 0.0299 - pi_accuracy: 0.0291 - v_accuracy: 0.4920
+Epoch 10/15
+43/43 [==============================] - 0s 8ms/step - loss: 4.5170 - pi_loss: 4.3647 - v_loss: 0.0261 - pi_accuracy: 0.0298 - v_accuracy: 0.4935
+Epoch 11/15
+43/43 [==============================] - 0s 8ms/step - loss: 4.5088 - pi_loss: 4.3596 - v_loss: 0.0229 - pi_accuracy: 0.0320 - v_accuracy: 0.4956
+Epoch 12/15
+43/43 [==============================] - 0s 8ms/step - loss: 4.5073 - pi_loss: 4.3555 - v_loss: 0.0256 - pi_accuracy: 0.0305 - v_accuracy: 0.4920
+Epoch 13/15
+43/43 [==============================] - 0s 8ms/step - loss: 4.5027 - pi_loss: 4.3517 - v_loss: 0.0248 - pi_accuracy: 0.0283 - v_accuracy: 0.4906
+Epoch 14/15
+43/43 [==============================] - 0s 8ms/step - loss: 4.4963 - pi_loss: 4.3475 - v_loss: 0.0225 - pi_accuracy: 0.0327 - v_accuracy: 0.4956
+Epoch 15/15
+43/43 [==============================] - 0s 8ms/step - loss: 4.4896 - pi_loss: 4.3422 - v_loss: 0.0213 - pi_accuracy: 0.0291 - v_accuracy: 0.4971
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+	Last play is pass, win
+Game Over -1
+Lose
+Arena:   7%|▋         | 1/15 [06:07<1:25:48, 367.73s/it]
+	Last play is pass, win
+Game Over -1
+Win
+Arena:  13%|█▎        | 2/15 [09:07<55:45, 257.32s/it]
+Arena:  20%|██        | 3/15 [16:44<1:09:42, 348.56s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  27%|██▋       | 4/15 [18:51<47:49, 260.84s/it]  	Last play is pass, win
+Game Over -1
+Win
+	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  33%|███▎      | 5/15 [21:16<36:30, 219.10s/it]
+Arena:  40%|████      | 6/15 [26:27<37:33, 250.37s/it]	Last play is pass, win
+Game Over -1
+Win
+	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  47%|████▋     | 7/15 [28:34<28:00, 210.07s/it]
+Arena:  53%|█████▎    | 8/15 [35:25<31:57, 273.94s/it]	Last play is pass, win
+Game Over -1
+Win
+	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  60%|██████    | 9/15 [43:04<33:11, 331.92s/it]
+	Last play is pass, win
+Game Over -1
+Win
+Arena:  67%|██████▋   | 10/15 [48:42<27:49, 333.85s/it]
+Arena:  73%|███████▎  | 11/15 [55:54<24:15, 363.79s/it]	Last play is pass, win
+Game Over -1
+Lose
+	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  80%|████████  | 12/15 [1:02:57<19:05, 381.78s/it]
+Arena:  87%|████████▋ | 13/15 [1:09:18<12:43, 381.69s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  93%|█████████▎| 14/15 [1:16:12<06:31, 391.44s/it]	Last play is pass, win
+Game Over 1
+Lose
+	Last play is pass, win
+Game Over -1
+Lose
+Evaluation result 5-0-10
+
+Arena: 100%|██████████| 15/15 [1:24:30<00:00, 338.07s/it]
+Training:  60%|██████    | 12/20 [30:58:04<21:11:21, 9535.19s/it]WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]
+Self play:  10%|█         | 1/10 [06:06<54:54, 366.01s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  20%|██        | 2/10 [13:47<56:15, 421.97s/it]
+Self play:  30%|███       | 3/10 [20:52<49:25, 423.65s/it]	Last play is pass, win
+
+Self play:  40%|████      | 4/10 [28:08<42:50, 428.37s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  50%|█████     | 5/10 [29:56<26:04, 312.87s/it]
+Self play:  60%|██████    | 6/10 [38:37<25:34, 383.59s/it]
+	Last play is pass, win
+Self play:  70%|███████   | 7/10 [41:24<15:38, 312.87s/it]
+Self play:  80%|████████  | 8/10 [50:08<12:40, 380.06s/it]
+Self play:  90%|█████████ | 9/10 [56:18<06:16, 376.94s/it]	Last play is pass, win
+
+Self play: 100%|██████████| 10/10 [1:03:46<00:00, 382.68s/it]
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+44/44 [==============================] - 0s 10ms/step - loss: 4.8552 - pi_loss: 4.4053 - v_loss: 0.3235 - pi_accuracy: 0.0231 - v_accuracy: 0.4079
+Epoch 2/15
+44/44 [==============================] - 0s 9ms/step - loss: 4.5910 - pi_loss: 4.4028 - v_loss: 0.0618 - pi_accuracy: 0.0202 - v_accuracy: 0.4801
+Epoch 3/15
+44/44 [==============================] - 0s 9ms/step - loss: 4.5689 - pi_loss: 4.3953 - v_loss: 0.0472 - pi_accuracy: 0.0224 - v_accuracy: 0.4852
+Epoch 4/15
+44/44 [==============================] - 0s 9ms/step - loss: 4.5564 - pi_loss: 4.3886 - v_loss: 0.0415 - pi_accuracy: 0.0188 - v_accuracy: 0.4874
+Epoch 5/15
+44/44 [==============================] - 0s 9ms/step - loss: 4.5526 - pi_loss: 4.3868 - v_loss: 0.0394 - pi_accuracy: 0.0224 - v_accuracy: 0.4881
+Epoch 6/15
+44/44 [==============================] - 0s 9ms/step - loss: 4.5457 - pi_loss: 4.3812 - v_loss: 0.0383 - pi_accuracy: 0.0231 - v_accuracy: 0.4866
+Epoch 7/15
+44/44 [==============================] - 0s 9ms/step - loss: 4.5419 - pi_loss: 4.3766 - v_loss: 0.0390 - pi_accuracy: 0.0267 - v_accuracy: 0.4888
+Epoch 8/15
+44/44 [==============================] - 0s 9ms/step - loss: 4.5266 - pi_loss: 4.3727 - v_loss: 0.0276 - pi_accuracy: 0.0282 - v_accuracy: 0.4939
+Epoch 9/15
+44/44 [==============================] - 0s 9ms/step - loss: 4.5285 - pi_loss: 4.3685 - v_loss: 0.0338 - pi_accuracy: 0.0260 - v_accuracy: 0.4917
+Epoch 10/15
+44/44 [==============================] - 0s 9ms/step - loss: 4.5205 - pi_loss: 4.3670 - v_loss: 0.0272 - pi_accuracy: 0.0282 - v_accuracy: 0.4917
+Epoch 11/15
+44/44 [==============================] - 0s 9ms/step - loss: 4.5120 - pi_loss: 4.3594 - v_loss: 0.0264 - pi_accuracy: 0.0318 - v_accuracy: 0.4917
+Epoch 12/15
+44/44 [==============================] - 0s 9ms/step - loss: 4.5071 - pi_loss: 4.3573 - v_loss: 0.0236 - pi_accuracy: 0.0260 - v_accuracy: 0.4946
+Epoch 13/15
+44/44 [==============================] - 0s 9ms/step - loss: 4.5012 - pi_loss: 4.3516 - v_loss: 0.0235 - pi_accuracy: 0.0303 - v_accuracy: 0.4931
+Epoch 14/15
+44/44 [==============================] - 0s 9ms/step - loss: 4.4963 - pi_loss: 4.3485 - v_loss: 0.0216 - pi_accuracy: 0.0318 - v_accuracy: 0.4946
+Epoch 15/15
+44/44 [==============================] - 0s 9ms/step - loss: 4.4917 - pi_loss: 4.3433 - v_loss: 0.0222 - pi_accuracy: 0.0274 - v_accuracy: 0.4924
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+	Last play is pass, win
+Game Over -1
+Lose
+Arena:   7%|▋         | 1/15 [07:50<1:49:52, 470.92s/it]
+	Last play is pass, win
+Game Over 1
+Lose
+Arena:  13%|█▎        | 2/15 [15:23<1:39:40, 460.04s/it]
+Arena:  20%|██        | 3/15 [22:57<1:31:26, 457.20s/it]	Last play is pass, win
+Game Over 1
+Win
+Game Over -1
+Win
+
+Arena:  27%|██▋       | 4/15 [31:48<1:29:09, 486.35s/it]
+	Last play is pass, win
+Game Over -1
+Lose
+Arena:  33%|███▎      | 5/15 [32:41<55:03, 330.33s/it]
+Arena:  40%|████      | 6/15 [39:32<53:39, 357.75s/it]	Last play is pass, win
+Game Over -1
+Win
+Game Over 1
+Win
+
+Arena:  47%|████▋     | 7/15 [47:01<51:39, 387.42s/it]
+Arena:  53%|█████▎    | 8/15 [54:44<48:01, 411.67s/it]Game Over -1
+Win
+
+Arena:  60%|██████    | 9/15 [59:27<37:07, 371.29s/it]	Last play is pass, win
+Game Over 1
+Win
+
+Arena:  67%|██████▋   | 10/15 [1:07:12<33:20, 400.13s/it]	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  73%|███████▎  | 11/15 [1:12:05<24:29, 367.48s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  80%|████████  | 12/15 [1:19:36<19:38, 392.90s/it]	Last play is pass, win
+Game Over -1
+Win
+
+Arena:  87%|████████▋ | 13/15 [1:26:03<13:02, 391.13s/it]	Last play is pass, win
+Game Over 1
+Win
+
+Arena:  93%|█████████▎| 14/15 [1:35:34<07:25, 445.25s/it]Game Over -1
+Win
+	Last play is pass, win
+Game Over 1
+Win
+Evaluation result 10-0-5
+Saved new model
+
+Arena: 100%|██████████| 15/15 [1:40:28<00:00, 401.88s/it]
+Training:  65%|██████▌   | 13/20 [33:42:32<18:44:10, 9635.75s/it]WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]
+Self play:  10%|█         | 1/10 [06:37<59:37, 397.52s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  20%|██        | 2/10 [11:32<44:55, 336.96s/it]
+	Last play is pass, win
+Self play:  30%|███       | 3/10 [13:39<28:08, 241.15s/it]
+Self play:  40%|████      | 4/10 [19:17<27:57, 279.53s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  50%|█████     | 5/10 [25:21<25:50, 310.04s/it]
+Self play:  60%|██████    | 6/10 [30:43<20:55, 313.90s/it]	Last play is pass, win
+
+Self play:  70%|███████   | 7/10 [38:21<18:02, 360.98s/it]
+	Last play is pass, win
+Self play:  80%|████████  | 8/10 [43:59<11:47, 353.79s/it]
+Self play:  90%|█████████ | 9/10 [51:36<06:25, 385.99s/it]	Last play is pass, win
+
+Self play: 100%|██████████| 10/10 [59:06<00:00, 354.61s/it]
+	Last play is pass, win
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+39/39 [==============================] - 0s 8ms/step - loss: 4.9416 - pi_loss: 4.4129 - v_loss: 0.4025 - pi_accuracy: 0.0224 - v_accuracy: 0.3758
+Epoch 2/15
+39/39 [==============================] - 0s 8ms/step - loss: 4.6166 - pi_loss: 4.4038 - v_loss: 0.0866 - pi_accuracy: 0.0232 - v_accuracy: 0.4679
+Epoch 3/15
+39/39 [==============================] - 0s 8ms/step - loss: 4.5802 - pi_loss: 4.3908 - v_loss: 0.0632 - pi_accuracy: 0.0240 - v_accuracy: 0.4776
+Epoch 4/15
+39/39 [==============================] - 0s 8ms/step - loss: 4.5624 - pi_loss: 4.3781 - v_loss: 0.0581 - pi_accuracy: 0.0312 - v_accuracy: 0.4784
+Epoch 5/15
+39/39 [==============================] - 0s 8ms/step - loss: 4.5473 - pi_loss: 4.3745 - v_loss: 0.0467 - pi_accuracy: 0.0296 - v_accuracy: 0.4864
+Epoch 6/15
+39/39 [==============================] - 0s 8ms/step - loss: 4.5319 - pi_loss: 4.3637 - v_loss: 0.0421 - pi_accuracy: 0.0264 - v_accuracy: 0.4864
+Epoch 7/15
+39/39 [==============================] - 0s 8ms/step - loss: 4.5329 - pi_loss: 4.3607 - v_loss: 0.0461 - pi_accuracy: 0.0296 - v_accuracy: 0.4816
+Epoch 8/15
+39/39 [==============================] - 0s 8ms/step - loss: 4.5178 - pi_loss: 4.3549 - v_loss: 0.0368 - pi_accuracy: 0.0312 - v_accuracy: 0.4888
+Epoch 9/15
+39/39 [==============================] - 0s 8ms/step - loss: 4.5159 - pi_loss: 4.3547 - v_loss: 0.0350 - pi_accuracy: 0.0288 - v_accuracy: 0.4872
+Epoch 10/15
+39/39 [==============================] - 0s 8ms/step - loss: 4.5151 - pi_loss: 4.3425 - v_loss: 0.0465 - pi_accuracy: 0.0280 - v_accuracy: 0.4928
+Epoch 11/15
+39/39 [==============================] - 0s 8ms/step - loss: 4.5040 - pi_loss: 4.3377 - v_loss: 0.0402 - pi_accuracy: 0.0321 - v_accuracy: 0.4840
+Epoch 12/15
+39/39 [==============================] - 0s 8ms/step - loss: 4.4933 - pi_loss: 4.3323 - v_loss: 0.0349 - pi_accuracy: 0.0337 - v_accuracy: 0.4920
+Epoch 13/15
+39/39 [==============================] - 0s 8ms/step - loss: 4.4969 - pi_loss: 4.3330 - v_loss: 0.0378 - pi_accuracy: 0.0312 - v_accuracy: 0.4936
+Epoch 14/15
+39/39 [==============================] - 0s 8ms/step - loss: 4.4827 - pi_loss: 4.3222 - v_loss: 0.0344 - pi_accuracy: 0.0304 - v_accuracy: 0.4896
+Epoch 15/15
+39/39 [==============================] - 0s 8ms/step - loss: 4.4776 - pi_loss: 4.3137 - v_loss: 0.0379 - pi_accuracy: 0.0337 - v_accuracy: 0.4912
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+Arena:   7%|▋         | 1/15 [02:59<41:46, 179.02s/it]	Last play is pass, win
+Game Over -1
+Lose
+	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  13%|█▎        | 2/15 [09:18<1:04:21, 297.06s/it]
+Arena:  20%|██        | 3/15 [14:52<1:02:43, 313.64s/it]	Last play is pass, win
+Game Over 1
+Win
+	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  27%|██▋       | 4/15 [21:04<1:01:44, 336.73s/it]
+Arena:  33%|███▎      | 5/15 [30:33<1:10:06, 420.62s/it]Game Over 1
+Win
+	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  40%|████      | 6/15 [37:26<1:02:40, 417.86s/it]
+	Last play is pass, win
+Game Over -1
+Lose
+Arena:  47%|████▋     | 7/15 [38:50<41:10, 308.83s/it]
+Arena:  53%|█████▎    | 8/15 [44:43<37:39, 322.77s/it]	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  60%|██████    | 9/15 [51:45<35:24, 354.01s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  67%|██████▋   | 10/15 [59:08<31:46, 381.35s/it]	Last play is pass, win
+Game Over 1
+Lose
+	Last play is pass, win
+Game Over 1
+Win
+
+Arena:  73%|███████▎  | 11/15 [1:06:15<26:21, 395.48s/it]
+	Last play is pass, win
+Game Over 1
+Lose
+Arena:  80%|████████  | 12/15 [1:13:07<20:01, 400.54s/it]
+Arena:  87%|████████▋ | 13/15 [1:20:40<13:52, 416.30s/it]	Last play is pass, win
+Game Over 1
+Win
+	Last play is pass, win
+
+Arena:  93%|█████████▎| 14/15 [1:24:10<05:54, 354.06s/it]Game Over -1
+Win
+
+Arena: 100%|██████████| 15/15 [1:33:04<00:00, 372.28s/it]
+Training:  70%|███████   | 14/20 [36:14:52<15:48:36, 9486.10s/it]Game Over -1
+Lose
+Evaluation result 5-0-10
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]
+	Last play is pass, win
+Self play:  10%|█         | 1/10 [06:36<59:26, 396.31s/it]
+	Last play is pass, win
+Self play:  20%|██        | 2/10 [12:25<49:10, 368.87s/it]
+Self play:  30%|███       | 3/10 [13:07<25:34, 219.20s/it]
+Self play:  40%|████      | 4/10 [19:00<27:13, 272.31s/it]	Last play is pass, win
+
+Self play:  50%|█████     | 5/10 [27:26<29:43, 356.60s/it]
+Self play:  60%|██████    | 6/10 [32:41<22:49, 342.34s/it]	Last play is pass, win
+
+Self play:  70%|███████   | 7/10 [39:25<18:07, 362.38s/it]	Last play is pass, win
+
+Self play:  80%|████████  | 8/10 [45:58<12:24, 372.14s/it]	Last play is pass, win
+
+Self play:  90%|█████████ | 9/10 [53:12<06:31, 391.62s/it]	Last play is pass, win
+
+Self play: 100%|██████████| 10/10 [59:44<00:00, 358.46s/it]
+	Last play is pass, win
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+40/40 [==============================] - 1s 13ms/step - loss: 4.9118 - pi_loss: 4.4321 - v_loss: 0.3535 - pi_accuracy: 0.0165 - v_accuracy: 0.4090
+Epoch 2/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.6385 - pi_loss: 4.4164 - v_loss: 0.0959 - pi_accuracy: 0.0173 - v_accuracy: 0.4673
+Epoch 3/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5922 - pi_loss: 4.4073 - v_loss: 0.0587 - pi_accuracy: 0.0221 - v_accuracy: 0.4870
+Epoch 4/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5760 - pi_loss: 4.3998 - v_loss: 0.0501 - pi_accuracy: 0.0221 - v_accuracy: 0.4831
+Epoch 5/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5596 - pi_loss: 4.3951 - v_loss: 0.0383 - pi_accuracy: 0.0197 - v_accuracy: 0.4894
+Epoch 6/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5559 - pi_loss: 4.3875 - v_loss: 0.0423 - pi_accuracy: 0.0229 - v_accuracy: 0.4886
+Epoch 7/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5477 - pi_loss: 4.3836 - v_loss: 0.0381 - pi_accuracy: 0.0236 - v_accuracy: 0.4909
+Epoch 8/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5375 - pi_loss: 4.3774 - v_loss: 0.0340 - pi_accuracy: 0.0252 - v_accuracy: 0.4901
+Epoch 9/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5319 - pi_loss: 4.3730 - v_loss: 0.0328 - pi_accuracy: 0.0244 - v_accuracy: 0.4941
+Epoch 10/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5279 - pi_loss: 4.3671 - v_loss: 0.0347 - pi_accuracy: 0.0236 - v_accuracy: 0.4886
+Epoch 11/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5180 - pi_loss: 4.3617 - v_loss: 0.0303 - pi_accuracy: 0.0252 - v_accuracy: 0.4925
+Epoch 12/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5154 - pi_loss: 4.3561 - v_loss: 0.0332 - pi_accuracy: 0.0244 - v_accuracy: 0.4941
+Epoch 13/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5198 - pi_loss: 4.3513 - v_loss: 0.0425 - pi_accuracy: 0.0292 - v_accuracy: 0.4909
+Epoch 14/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5150 - pi_loss: 4.3510 - v_loss: 0.0380 - pi_accuracy: 0.0292 - v_accuracy: 0.4886
+Epoch 15/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.4983 - pi_loss: 4.3421 - v_loss: 0.0302 - pi_accuracy: 0.0252 - v_accuracy: 0.4901
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+	Last play is pass, win
+Game Over -1
+Lose
+Arena:   7%|▋         | 1/15 [01:40<23:29, 100.65s/it]
+Arena:  13%|█▎        | 2/15 [07:53<56:33, 261.01s/it]	Last play is pass, win
+Game Over 1
+Lose
+	Last play is pass, win
+Game Over 1
+Win
+
+Arena:  20%|██        | 3/15 [14:41<1:05:35, 327.95s/it]
+	Last play is pass, win
+Game Over -1
+Win
+Arena:  27%|██▋       | 4/15 [21:08<1:04:23, 351.24s/it]
+	Last play is pass, win
+Game Over -1
+Lose
+Arena:  33%|███▎      | 5/15 [22:40<42:58, 257.83s/it]
+Arena:  40%|████      | 6/15 [29:15<45:38, 304.25s/it]	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  47%|████▋     | 7/15 [36:06<45:14, 339.33s/it]	Last play is pass, win
+Game Over 1
+Win
+
+Arena:  53%|█████▎    | 8/15 [42:11<40:31, 347.42s/it]	Last play is pass, win
+Game Over -1
+Win
+
+Arena:  60%|██████    | 9/15 [49:57<38:27, 384.54s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  67%|██████▋   | 10/15 [56:55<32:55, 395.01s/it]Game Over 1
+Lose
+
+Arena:  73%|███████▎  | 11/15 [1:03:57<26:53, 403.27s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  80%|████████  | 12/15 [1:10:52<20:20, 406.80s/it]	Last play is pass, win
+Game Over -1
+Win
+
+Arena:  87%|████████▋ | 13/15 [1:19:07<14:26, 433.42s/it]Game Over -1
+Lose
+	Last play is pass, win
+Game Over -1
+Win
+
+Arena:  93%|█████████▎| 14/15 [1:20:39<05:30, 330.22s/it]
+Arena: 100%|██████████| 15/15 [1:26:34<00:00, 346.32s/it]
+Training:  75%|███████▌  | 15/20 [38:41:23<12:53:02, 9276.56s/it]	Last play is pass, win
+Game Over 1
+Win
+Evaluation result 7-0-8
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]
+Self play:  10%|█         | 1/10 [02:03<18:34, 123.78s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  20%|██        | 2/10 [04:11<16:47, 125.97s/it]
+	Last play is pass, win
+Self play:  30%|███       | 3/10 [06:35<15:40, 134.39s/it]
+	Last play is pass, win
+Self play:  40%|████      | 4/10 [08:22<12:21, 123.57s/it]
+Self play:  50%|█████     | 5/10 [15:25<19:16, 231.36s/it]	Last play is pass, win
+
+Self play:  60%|██████    | 6/10 [22:34<19:54, 298.61s/it]	Last play is pass, win
+
+Self play:  70%|███████   | 7/10 [25:51<13:15, 265.29s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  80%|████████  | 8/10 [29:46<08:31, 255.90s/it]
+Self play:  90%|█████████ | 9/10 [35:28<04:42, 282.80s/it]	Last play is pass, win
+
+Self play: 100%|██████████| 10/10 [42:24<00:00, 254.43s/it]
+	Last play is pass, win
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+26/26 [==============================] - 0s 15ms/step - loss: 4.9207 - pi_loss: 4.4337 - v_loss: 0.3608 - pi_accuracy: 0.0269 - v_accuracy: 0.3724
+Epoch 2/15
+26/26 [==============================] - 0s 10ms/step - loss: 4.6422 - pi_loss: 4.4140 - v_loss: 0.1020 - pi_accuracy: 0.0293 - v_accuracy: 0.4640
+Epoch 3/15
+26/26 [==============================] - 0s 10ms/step - loss: 4.6034 - pi_loss: 4.4059 - v_loss: 0.0712 - pi_accuracy: 0.0342 - v_accuracy: 0.4676
+Epoch 4/15
+26/26 [==============================] - 0s 10ms/step - loss: 4.5745 - pi_loss: 4.3931 - v_loss: 0.0552 - pi_accuracy: 0.0305 - v_accuracy: 0.4860
+Epoch 5/15
+26/26 [==============================] - 0s 10ms/step - loss: 4.5755 - pi_loss: 4.3874 - v_loss: 0.0619 - pi_accuracy: 0.0342 - v_accuracy: 0.4713
+Epoch 6/15
+26/26 [==============================] - 0s 10ms/step - loss: 4.5593 - pi_loss: 4.3845 - v_loss: 0.0486 - pi_accuracy: 0.0342 - v_accuracy: 0.4799
+Epoch 7/15
+26/26 [==============================] - 0s 9ms/step - loss: 4.5498 - pi_loss: 4.3780 - v_loss: 0.0457 - pi_accuracy: 0.0330 - v_accuracy: 0.4872
+Epoch 8/15
+26/26 [==============================] - 0s 9ms/step - loss: 4.5397 - pi_loss: 4.3729 - v_loss: 0.0406 - pi_accuracy: 0.0317 - v_accuracy: 0.4884
+Epoch 9/15
+26/26 [==============================] - 0s 10ms/step - loss: 4.5415 - pi_loss: 4.3669 - v_loss: 0.0484 - pi_accuracy: 0.0317 - v_accuracy: 0.4786
+Epoch 10/15
+26/26 [==============================] - 0s 10ms/step - loss: 4.5253 - pi_loss: 4.3612 - v_loss: 0.0380 - pi_accuracy: 0.0354 - v_accuracy: 0.4884
+Epoch 11/15
+26/26 [==============================] - 0s 10ms/step - loss: 4.5228 - pi_loss: 4.3616 - v_loss: 0.0351 - pi_accuracy: 0.0342 - v_accuracy: 0.4896
+Epoch 12/15
+26/26 [==============================] - 0s 10ms/step - loss: 4.5124 - pi_loss: 4.3504 - v_loss: 0.0359 - pi_accuracy: 0.0403 - v_accuracy: 0.4933
+Epoch 13/15
+26/26 [==============================] - 0s 10ms/step - loss: 4.5105 - pi_loss: 4.3446 - v_loss: 0.0398 - pi_accuracy: 0.0415 - v_accuracy: 0.4835
+Epoch 14/15
+26/26 [==============================] - 0s 10ms/step - loss: 4.5112 - pi_loss: 4.3467 - v_loss: 0.0385 - pi_accuracy: 0.0440 - v_accuracy: 0.4933
+Epoch 15/15
+26/26 [==============================] - 0s 9ms/step - loss: 4.5039 - pi_loss: 4.3408 - v_loss: 0.0370 - pi_accuracy: 0.0415 - v_accuracy: 0.4860
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+	Last play is pass, win
+Game Over -1
+Lose
+Arena:   7%|▋         | 1/15 [07:03<1:38:42, 423.05s/it]
+Arena:  13%|█▎        | 2/15 [12:45<1:21:24, 375.73s/it]	Last play is pass, win
+Game Over -1
+Win
+	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  20%|██        | 3/15 [19:28<1:17:39, 388.25s/it]
+Arena:  27%|██▋       | 4/15 [26:36<1:14:03, 403.99s/it]	Last play is pass, win
+Game Over 1
+Lose
+	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  33%|███▎      | 5/15 [29:29<53:24, 320.44s/it]
+Arena:  40%|████      | 6/15 [38:05<58:02, 386.93s/it]Game Over 1
+Lose
+
+Arena:  47%|████▋     | 7/15 [44:19<51:02, 382.81s/it]	Last play is pass, win
+Game Over -1
+Lose
+	Last play is pass, win
+
+Arena:  53%|█████▎    | 8/15 [47:58<38:33, 330.52s/it]Game Over -1
+Win
+
+Arena:  60%|██████    | 9/15 [53:52<33:47, 337.94s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  67%|██████▋   | 10/15 [1:00:36<29:51, 358.32s/it]	Last play is pass, win
+Game Over -1
+Win
+	Last play is pass, win
+Game Over 1
+Win
+
+Arena:  73%|███████▎  | 11/15 [1:07:03<24:28, 367.19s/it]
+	Last play is pass, win
+Game Over 1
+Lose
+Arena:  80%|████████  | 12/15 [1:10:22<15:48, 316.04s/it]
+Arena:  87%|████████▋ | 13/15 [1:18:00<11:57, 359.00s/it]	Last play is pass, win
+Game Over 1
+Win
+Game Over 1
+Lose
+
+Arena:  93%|█████████▎| 14/15 [1:27:14<06:57, 417.92s/it]
+Game Over -1
+Lose
+Evaluation result 5-0-10
+Arena: 100%|██████████| 15/15 [1:35:28<00:00, 381.90s/it]
+Training:  80%|████████  | 16/20 [40:59:26<9:58:30, 8977.57s/it] WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]
+	Last play is pass, win
+Self play:  10%|█         | 1/10 [06:12<55:52, 372.49s/it]
+Self play:  20%|██        | 2/10 [11:28<45:12, 339.12s/it]	Last play is pass, win
+
+Self play:  30%|███       | 3/10 [17:21<40:17, 345.37s/it]	Last play is pass, win
+
+Self play:  40%|████      | 4/10 [22:51<33:56, 339.38s/it]	Last play is pass, win
+
+Self play:  50%|█████     | 5/10 [29:53<30:45, 369.15s/it]
+	Last play is pass, win
+Self play:  60%|██████    | 6/10 [33:35<21:17, 319.31s/it]
+Self play:  70%|███████   | 7/10 [40:52<17:53, 357.74s/it]
+	Last play is pass, win
+Self play:  80%|████████  | 8/10 [47:34<12:23, 371.75s/it]
+	Last play is pass, win
+Self play:  90%|█████████ | 9/10 [53:42<06:10, 370.67s/it]
+Self play: 100%|██████████| 10/10 [1:00:21<00:00, 362.15s/it]
+	Last play is pass, win
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+40/40 [==============================] - 1s 13ms/step - loss: 4.9262 - pi_loss: 4.4310 - v_loss: 0.3690 - pi_accuracy: 0.0198 - v_accuracy: 0.3937
+Epoch 2/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.6416 - pi_loss: 4.4170 - v_loss: 0.0984 - pi_accuracy: 0.0222 - v_accuracy: 0.4611
+Epoch 3/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5906 - pi_loss: 4.4080 - v_loss: 0.0564 - pi_accuracy: 0.0214 - v_accuracy: 0.4754
+Epoch 4/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5890 - pi_loss: 4.4032 - v_loss: 0.0596 - pi_accuracy: 0.0246 - v_accuracy: 0.4786
+Epoch 5/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5643 - pi_loss: 4.3922 - v_loss: 0.0459 - pi_accuracy: 0.0230 - v_accuracy: 0.4833
+Epoch 6/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5612 - pi_loss: 4.3898 - v_loss: 0.0452 - pi_accuracy: 0.0270 - v_accuracy: 0.4833
+Epoch 7/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5469 - pi_loss: 4.3812 - v_loss: 0.0396 - pi_accuracy: 0.0254 - v_accuracy: 0.4833
+Epoch 8/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5472 - pi_loss: 4.3762 - v_loss: 0.0449 - pi_accuracy: 0.0230 - v_accuracy: 0.4873
+Epoch 9/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5297 - pi_loss: 4.3701 - v_loss: 0.0335 - pi_accuracy: 0.0262 - v_accuracy: 0.4873
+Epoch 10/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5248 - pi_loss: 4.3653 - v_loss: 0.0334 - pi_accuracy: 0.0262 - v_accuracy: 0.4897
+Epoch 11/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5261 - pi_loss: 4.3604 - v_loss: 0.0396 - pi_accuracy: 0.0254 - v_accuracy: 0.4881
+Epoch 12/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5130 - pi_loss: 4.3547 - v_loss: 0.0322 - pi_accuracy: 0.0278 - v_accuracy: 0.4913
+Epoch 13/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5072 - pi_loss: 4.3462 - v_loss: 0.0350 - pi_accuracy: 0.0278 - v_accuracy: 0.4897
+Epoch 14/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.4978 - pi_loss: 4.3412 - v_loss: 0.0305 - pi_accuracy: 0.0278 - v_accuracy: 0.4865
+Epoch 15/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.4935 - pi_loss: 4.3348 - v_loss: 0.0326 - pi_accuracy: 0.0262 - v_accuracy: 0.4905
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+Arena:   7%|▋         | 1/15 [07:51<1:49:57, 471.28s/it]	Last play is pass, win
+Game Over 1
+Win
+Game Over 1
+Lose
+
+Arena:  13%|█▎        | 2/15 [16:34<1:48:45, 501.98s/it]
+	Last play is pass, win
+Game Over -1
+Lose
+Arena:  20%|██        | 3/15 [24:25<1:37:32, 487.71s/it]
+	Last play is pass, win
+Game Over 1
+Lose
+Arena:  27%|██▋       | 4/15 [29:35<1:16:34, 417.66s/it]
+Game Over -1
+Lose
+Arena:  33%|███▎      | 5/15 [38:16<1:15:49, 454.97s/it]
+	Last play is pass, win
+Game Over 1
+Lose
+Arena:  40%|████      | 6/15 [44:39<1:04:33, 430.35s/it]
+Arena:  47%|████▋     | 7/15 [51:22<56:11, 421.43s/it]  	Last play is pass, win
+Game Over 1
+Win
+	Last play is pass, win
+
+Arena:  53%|█████▎    | 8/15 [58:48<50:05, 429.30s/it]Game Over 1
+Lose
+
+Arena:  60%|██████    | 9/15 [1:07:24<45:38, 456.41s/it]Game Over -1
+Lose
+	Last play is pass, win
+
+Arena:  67%|██████▋   | 10/15 [1:09:20<29:16, 351.25s/it]Game Over -1
+Win
+
+Arena:  73%|███████▎  | 11/15 [1:15:39<23:58, 359.72s/it]Game Over 1
+Win
+
+Arena:  80%|████████  | 12/15 [1:22:08<18:26, 368.80s/it]	Last play is pass, win
+Game Over 1
+Lose
+	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  87%|████████▋ | 13/15 [1:23:16<09:15, 277.54s/it]
+Arena:  93%|█████████▎| 14/15 [1:31:08<05:36, 336.38s/it]Game Over -1
+Win
+Game Over 1
+Win
+Evaluation result 6-0-9
+
+Arena: 100%|██████████| 15/15 [1:39:32<00:00, 398.14s/it]
+Training:  85%|████████▌ | 17/20 [43:39:32<7:38:19, 9166.41s/it]WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]
+	Last play is pass, win
+Self play:  10%|█         | 1/10 [02:51<25:43, 171.53s/it]
+Self play:  20%|██        | 2/10 [10:27<45:12, 339.04s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  30%|███       | 3/10 [17:01<42:27, 363.92s/it]
+Self play:  40%|████      | 4/10 [24:02<38:38, 386.40s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  50%|█████     | 5/10 [30:27<32:09, 385.90s/it]
+Self play:  60%|██████    | 6/10 [37:26<26:28, 397.19s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  70%|███████   | 7/10 [39:31<15:24, 308.12s/it]
+Self play:  80%|████████  | 8/10 [44:13<09:59, 299.85s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  90%|█████████ | 9/10 [45:46<03:55, 235.36s/it]
+Self play: 100%|██████████| 10/10 [52:12<00:00, 313.23s/it]
+	Last play is pass, win
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+34/34 [==============================] - 0s 10ms/step - loss: 4.9528 - pi_loss: 4.4326 - v_loss: 0.3941 - pi_accuracy: 0.0178 - v_accuracy: 0.3915
+Epoch 2/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.6374 - pi_loss: 4.4210 - v_loss: 0.0902 - pi_accuracy: 0.0169 - v_accuracy: 0.4592
+Epoch 3/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.6108 - pi_loss: 4.4114 - v_loss: 0.0732 - pi_accuracy: 0.0169 - v_accuracy: 0.4883
+Epoch 4/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5938 - pi_loss: 4.4041 - v_loss: 0.0635 - pi_accuracy: 0.0188 - v_accuracy: 0.4779
+Epoch 5/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5772 - pi_loss: 4.3980 - v_loss: 0.0531 - pi_accuracy: 0.0207 - v_accuracy: 0.4798
+Epoch 6/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5698 - pi_loss: 4.3921 - v_loss: 0.0516 - pi_accuracy: 0.0160 - v_accuracy: 0.4826
+Epoch 7/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5608 - pi_loss: 4.3892 - v_loss: 0.0455 - pi_accuracy: 0.0188 - v_accuracy: 0.4789
+Epoch 8/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5470 - pi_loss: 4.3840 - v_loss: 0.0369 - pi_accuracy: 0.0207 - v_accuracy: 0.4892
+Epoch 9/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5414 - pi_loss: 4.3774 - v_loss: 0.0379 - pi_accuracy: 0.0188 - v_accuracy: 0.4873
+Epoch 10/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5345 - pi_loss: 4.3713 - v_loss: 0.0372 - pi_accuracy: 0.0207 - v_accuracy: 0.4864
+Epoch 11/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5305 - pi_loss: 4.3677 - v_loss: 0.0368 - pi_accuracy: 0.0207 - v_accuracy: 0.4854
+Epoch 12/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5410 - pi_loss: 4.3658 - v_loss: 0.0491 - pi_accuracy: 0.0235 - v_accuracy: 0.4883
+Epoch 13/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5308 - pi_loss: 4.3630 - v_loss: 0.0418 - pi_accuracy: 0.0244 - v_accuracy: 0.4817
+Epoch 14/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5208 - pi_loss: 4.3584 - v_loss: 0.0364 - pi_accuracy: 0.0235 - v_accuracy: 0.4892
+Epoch 15/15
+34/34 [==============================] - 0s 9ms/step - loss: 4.5120 - pi_loss: 4.3493 - v_loss: 0.0366 - pi_accuracy: 0.0254 - v_accuracy: 0.4892
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+Arena:   7%|▋         | 1/15 [08:52<2:04:14, 532.48s/it]Game Over -1
+Lose
+
+Arena:  13%|█▎        | 2/15 [16:58<1:49:28, 505.24s/it]Game Over 1
+Lose
+	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  20%|██        | 3/15 [19:32<1:08:59, 344.93s/it]
+Arena:  27%|██▋       | 4/15 [28:27<1:17:00, 420.01s/it]Game Over 1
+Lose
+	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  33%|███▎      | 5/15 [36:21<1:13:13, 439.31s/it]
+	Last play is pass, win
+Game Over -1
+Win
+Arena:  40%|████      | 6/15 [38:11<49:04, 327.22s/it]
+	Last play is pass, win
+Game Over 1
+Win
+Arena:  47%|████▋     | 7/15 [44:21<45:29, 341.22s/it]
+Arena:  53%|█████▎    | 8/15 [50:14<40:15, 345.06s/it]	Last play is pass, win
+Game Over 1
+Lose
+	Last play is pass, win
+
+Arena:  60%|██████    | 9/15 [57:20<37:03, 370.54s/it]Game Over -1
+Lose
+	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  67%|██████▋   | 10/15 [1:05:08<33:22, 400.48s/it]
+Arena:  73%|███████▎  | 11/15 [1:10:39<25:16, 379.17s/it]	Last play is pass, win
+Game Over 1
+Win
+
+Arena:  80%|████████  | 12/15 [1:16:02<18:06, 362.16s/it]	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  87%|████████▋ | 13/15 [1:23:13<12:46, 383.03s/it]	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  93%|█████████▎| 14/15 [1:30:55<06:46, 406.72s/it]	Last play is pass, win
+Game Over 1
+Lose
+	Last play is pass, win
+Game Over 1
+Win
+Evaluation result 4-0-11
+
+Arena: 100%|██████████| 15/15 [1:36:41<00:00, 386.78s/it]
+Training:  90%|█████████ | 18/20 [46:08:36<5:03:19, 9099.80s/it]WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]
+Self play:  10%|█         | 1/10 [08:19<1:14:56, 499.58s/it]
+Self play:  20%|██        | 2/10 [16:44<1:07:03, 502.88s/it]
+Self play:  30%|███       | 3/10 [23:01<51:57, 445.38s/it]  	Last play is pass, win
+
+Self play:  40%|████      | 4/10 [29:45<42:54, 429.04s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  50%|█████     | 5/10 [36:22<34:47, 417.44s/it]
+	Last play is pass, win
+Self play:  60%|██████    | 6/10 [42:41<26:57, 404.31s/it]
+Self play:  70%|███████   | 7/10 [50:22<21:08, 422.75s/it]
+Self play:  80%|████████  | 8/10 [56:20<13:24, 402.10s/it]	Last play is pass, win
+
+Self play:  90%|█████████ | 9/10 [1:04:01<07:00, 420.56s/it]	Last play is pass, win
+
+Self play: 100%|██████████| 10/10 [1:13:14<00:00, 439.46s/it]
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+50/50 [==============================] - 1s 10ms/step - loss: 4.9006 - pi_loss: 4.4155 - v_loss: 0.3590 - pi_accuracy: 0.0221 - v_accuracy: 0.4159
+Epoch 2/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.5695 - pi_loss: 4.3975 - v_loss: 0.0458 - pi_accuracy: 0.0195 - v_accuracy: 0.4877
+Epoch 3/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.5643 - pi_loss: 4.3916 - v_loss: 0.0465 - pi_accuracy: 0.0221 - v_accuracy: 0.4865
+Epoch 4/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.5425 - pi_loss: 4.3841 - v_loss: 0.0322 - pi_accuracy: 0.0239 - v_accuracy: 0.4959
+Epoch 5/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.5293 - pi_loss: 4.3752 - v_loss: 0.0280 - pi_accuracy: 0.0214 - v_accuracy: 0.4934
+Epoch 6/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.5268 - pi_loss: 4.3724 - v_loss: 0.0283 - pi_accuracy: 0.0221 - v_accuracy: 0.4959
+Epoch 7/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.5156 - pi_loss: 4.3621 - v_loss: 0.0275 - pi_accuracy: 0.0239 - v_accuracy: 0.4959
+Epoch 8/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.5090 - pi_loss: 4.3588 - v_loss: 0.0241 - pi_accuracy: 0.0284 - v_accuracy: 0.4978
+Epoch 9/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.4997 - pi_loss: 4.3502 - v_loss: 0.0235 - pi_accuracy: 0.0290 - v_accuracy: 0.4959
+Epoch 10/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.4938 - pi_loss: 4.3463 - v_loss: 0.0215 - pi_accuracy: 0.0284 - v_accuracy: 0.4972
+Epoch 11/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.4860 - pi_loss: 4.3398 - v_loss: 0.0201 - pi_accuracy: 0.0315 - v_accuracy: 0.4997
+Epoch 12/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.4844 - pi_loss: 4.3337 - v_loss: 0.0247 - pi_accuracy: 0.0258 - v_accuracy: 0.4965
+Epoch 13/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.4724 - pi_loss: 4.3263 - v_loss: 0.0201 - pi_accuracy: 0.0284 - v_accuracy: 0.5003
+Epoch 14/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.4667 - pi_loss: 4.3205 - v_loss: 0.0202 - pi_accuracy: 0.0290 - v_accuracy: 0.4997
+Epoch 15/15
+50/50 [==============================] - 0s 9ms/step - loss: 4.4570 - pi_loss: 4.3121 - v_loss: 0.0190 - pi_accuracy: 0.0252 - v_accuracy: 0.4991
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+Arena:   7%|▋         | 1/15 [08:35<2:00:16, 515.47s/it]Game Over 1
+Win
+
+Arena:  13%|█▎        | 2/15 [12:12<1:13:35, 339.67s/it]	Last play is pass, win
+Game Over -1
+Win
+	Last play is pass, win
+Game Over 1
+Win
+
+Arena:  20%|██        | 3/15 [19:54<1:19:07, 395.59s/it]
+Game Over 1
+Lose
+Arena:  27%|██▋       | 4/15 [26:00<1:10:23, 383.93s/it]
+Arena:  33%|███▎      | 5/15 [31:28<1:00:39, 363.96s/it]	Last play is pass, win
+Game Over 1
+Win
+	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  40%|████      | 6/15 [36:34<51:37, 344.18s/it]
+	Last play is pass, win
+Game Over -1
+Lose
+Arena:  47%|████▋     | 7/15 [42:45<47:02, 352.80s/it]
+Arena:  53%|█████▎    | 8/15 [48:36<41:05, 352.27s/it]	Last play is pass, win
+Game Over 1
+Lose
+Game Over 1
+Win
+
+Arena:  60%|██████    | 9/15 [58:25<42:37, 426.26s/it]
+Arena:  67%|██████▋   | 10/15 [1:05:59<36:14, 434.88s/it]	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  73%|███████▎  | 11/15 [1:12:07<27:37, 414.38s/it]	Last play is pass, win
+Game Over 1
+Win
+	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  80%|████████  | 12/15 [1:18:18<20:03, 401.13s/it]
+	Last play is pass, win
+Game Over 1
+Win
+Arena:  87%|████████▋ | 13/15 [1:23:44<12:36, 378.39s/it]
+	Last play is pass, win
+Game Over -1
+Win
+Arena:  93%|█████████▎| 14/15 [1:26:24<05:12, 312.40s/it]
+	Last play is pass, win
+Game Over 1
+Win
+Arena: 100%|██████████| 15/15 [1:33:09<00:00, 372.63s/it]
+Evaluation result 9-0-6
+Saved new model
+Training:  95%|█████████▌| 19/20 [48:55:13<2:36:09, 9369.28s/it]WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Self play:   0%|          | 0/10 [00:00<?, ?it/s]
+	Last play is pass, win
+Self play:  10%|█         | 1/10 [01:27<13:11, 87.96s/it]
+Self play:  20%|██        | 2/10 [07:03<31:10, 233.82s/it]	Last play is pass, win
+
+Self play:  30%|███       | 3/10 [13:22<34:58, 299.81s/it]	Last play is pass, win
+
+Self play:  40%|████      | 4/10 [19:26<32:31, 325.23s/it]	Last play is pass, win
+	Last play is pass, win
+
+Self play:  50%|█████     | 5/10 [26:00<29:09, 349.90s/it]
+	Last play is pass, win
+Self play:  60%|██████    | 6/10 [28:47<19:11, 287.76s/it]
+Self play:  70%|███████   | 7/10 [36:15<17:00, 340.26s/it]
+Self play:  80%|████████  | 8/10 [42:31<11:43, 351.52s/it]	Last play is pass, win
+
+Self play:  90%|█████████ | 9/10 [50:07<06:24, 384.31s/it]
+Self play: 100%|██████████| 10/10 [58:30<00:00, 351.06s/it]
+	Last play is pass, win
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+Epoch 1/15
+40/40 [==============================] - 1s 13ms/step - loss: 4.8810 - pi_loss: 4.4254 - v_loss: 0.3296 - pi_accuracy: 0.0252 - v_accuracy: 0.4134
+Epoch 2/15
+40/40 [==============================] - 0s 10ms/step - loss: 4.6036 - pi_loss: 4.4082 - v_loss: 0.0694 - pi_accuracy: 0.0244 - v_accuracy: 0.4764
+Epoch 3/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5778 - pi_loss: 4.3949 - v_loss: 0.0570 - pi_accuracy: 0.0197 - v_accuracy: 0.4803
+Epoch 4/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5520 - pi_loss: 4.3809 - v_loss: 0.0452 - pi_accuracy: 0.0260 - v_accuracy: 0.4811
+Epoch 5/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5356 - pi_loss: 4.3705 - v_loss: 0.0391 - pi_accuracy: 0.0252 - v_accuracy: 0.4882
+Epoch 6/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.5336 - pi_loss: 4.3618 - v_loss: 0.0459 - pi_accuracy: 0.0339 - v_accuracy: 0.4827
+Epoch 7/15
+40/40 [==============================] - 0s 10ms/step - loss: 4.5227 - pi_loss: 4.3549 - v_loss: 0.0420 - pi_accuracy: 0.0331 - v_accuracy: 0.4906
+Epoch 8/15
+40/40 [==============================] - 0s 11ms/step - loss: 4.5060 - pi_loss: 4.3450 - v_loss: 0.0351 - pi_accuracy: 0.0307 - v_accuracy: 0.4906
+Epoch 9/15
+40/40 [==============================] - 0s 11ms/step - loss: 4.5068 - pi_loss: 4.3383 - v_loss: 0.0426 - pi_accuracy: 0.0346 - v_accuracy: 0.4882
+Epoch 10/15
+40/40 [==============================] - 0s 10ms/step - loss: 4.4929 - pi_loss: 4.3292 - v_loss: 0.0379 - pi_accuracy: 0.0386 - v_accuracy: 0.4843
+Epoch 11/15
+40/40 [==============================] - 0s 10ms/step - loss: 4.5007 - pi_loss: 4.3252 - v_loss: 0.0497 - pi_accuracy: 0.0386 - v_accuracy: 0.4858
+Epoch 12/15
+40/40 [==============================] - 0s 10ms/step - loss: 4.4920 - pi_loss: 4.3201 - v_loss: 0.0461 - pi_accuracy: 0.0370 - v_accuracy: 0.4913
+Epoch 13/15
+40/40 [==============================] - 0s 10ms/step - loss: 4.4857 - pi_loss: 4.3143 - v_loss: 0.0456 - pi_accuracy: 0.0354 - v_accuracy: 0.4945
+Epoch 14/15
+40/40 [==============================] - 0s 10ms/step - loss: 4.4609 - pi_loss: 4.3021 - v_loss: 0.0330 - pi_accuracy: 0.0339 - v_accuracy: 0.4929
+Epoch 15/15
+40/40 [==============================] - 0s 9ms/step - loss: 4.4518 - pi_loss: 4.2954 - v_loss: 0.0306 - pi_accuracy: 0.0346 - v_accuracy: 0.4929
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Arena:   0%|          | 0/15 [00:00<?, ?it/s]
+Arena:   7%|▋         | 1/15 [06:42<1:34:00, 402.93s/it]	Last play is pass, win
+Game Over 1
+Win
+
+Arena:  13%|█▎        | 2/15 [12:37<1:21:08, 374.52s/it]	Last play is pass, win
+Game Over -1
+Win
+
+Arena:  20%|██        | 3/15 [17:23<1:06:48, 334.07s/it]	Last play is pass, win
+Game Over 1
+Win
+	Last play is pass, win
+Game Over 1
+Lose
+
+Arena:  27%|██▋       | 4/15 [24:12<1:06:39, 363.63s/it]
+	Last play is pass, win
+Game Over -1
+Lose
+Arena:  33%|███▎      | 5/15 [30:17<1:00:42, 364.28s/it]
+Arena:  40%|████      | 6/15 [37:16<57:25, 382.82s/it]  	Last play is pass, win
+Game Over -1
+Win
+
+Arena:  47%|████▋     | 7/15 [44:04<52:09, 391.14s/it]	Last play is pass, win
+Game Over 1
+Win
+	Last play is pass, win
+
+Arena:  53%|█████▎    | 8/15 [49:59<44:16, 379.56s/it]Game Over -1
+Win
+
+Arena:  60%|██████    | 9/15 [57:16<39:45, 397.60s/it]	Last play is pass, win
+Game Over 1
+Win
+	Last play is pass, win
+
+Arena:  67%|██████▋   | 10/15 [1:04:36<34:13, 410.62s/it]Game Over 1
+Lose
+	Last play is pass, win
+Game Over 1
+Win
+
+Arena:  73%|███████▎  | 11/15 [1:10:41<26:25, 396.43s/it]
+Arena:  80%|████████  | 12/15 [1:11:41<14:42, 294.21s/it]	Last play is pass, win
+Game Over -1
+Win
+	Last play is pass, win
+Game Over -1
+Lose
+
+Arena:  87%|████████▋ | 13/15 [1:18:45<11:07, 333.58s/it]
+	Last play is pass, win
+Arena:  93%|█████████▎| 14/15 [1:20:40<04:27, 267.60s/it]Game Over -1
+Win
+	Last play is pass, win
+Game Over -1
+Lose
+Evaluation result 10-0-5
+
+Arena: 100%|██████████| 15/15 [1:27:00<00:00, 348.05s/it]
+Saved new model
+Training: 100%|██████████| 20/20 [51:20:57<00:00, 9242.88s/it]
+
+Process finished with exit code 0
