@@ -135,8 +135,8 @@ def get_action_prob(model, state: Position, temperature):
 def get_action_coord(model):
     def action_fn(state):
         scores = get_action_prob(model, state, 0)
-        #action = np.random.choice(get_legal_actions(state.all_legal_moves()), p=scores)
-        action = get_legal_actions(state.all_legal_moves())[np.argmax(scores)]
+        action = np.random.choice(get_legal_actions(state.all_legal_moves()), p=scores)
+        #action = get_legal_actions(state.all_legal_moves())[np.argmax(scores)]
         if action == N * N:
             return None
         return flat_to_coord(action)

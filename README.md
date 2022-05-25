@@ -82,12 +82,11 @@ print(tf.config.list_physical_devices())
 ```
 The GPU should appear in the list.
 
-
 ## Usage
 
 ### Supervised learning
 
-A supervised learning process can be initiated, using GNUGo's scores to set policy's values, and win probability for the value. The process is divided in two stages:
+Unsupervised learning can be a long journey on traditional hardware. For this reason, a supervised learning process can be initiated, using GNUGo's scores to set policy's values, and win probability for the value. The process is divided in two stages:
 
 **1.** Generate the dataset.
 ```shell
@@ -107,8 +106,8 @@ _Nota Bene_: This process can take a while to complete if using a CPU-only envir
 
 The unsupervised learning process is the most important one in this project. It is the process of training a neural network to play against itself. The process is divided in three steps:
 * Self-play: Generate neural network input features from a dataset.
-* Network training: Train an initial model using the input features resulting from the dataset.
-* Comparison: Compare the newly trained model with the best one.
+* Retrain network: Train an initial model using the input features resulting from the dataset.
+* Evaluate network: Compare the newly trained model with the best one.
 
 If you want to use the unsupervised learning process, you can run the following command:
 ```shell
@@ -127,7 +126,81 @@ python CompareToRandom.py
 
 ## Implementation details
 
+This AlphaZero implementation was written in Python 3.8 with Keras 2.6 (Tensorflow 2.6.0 for the backend). It tries to replicate reinforcement learning methods described in _Mastering the Game of go without human knowledge_<sup>**[1]**</sup> (Silver et al.).
+
+### Node structure
+
+Each node in the MCTS tree is associated with a game state. The game state is represented by a `go.Position` object, which is a wrapper around the `features.Position` object. 
+
+Stored in the node are:
+* The number `n` of visits to the node
+* The total value `w` of the node 
+* The mean action value `q` of the node
+* The prior probability `p` of selecting the node
+
+The node also contains a list of child nodes `children`, which are the possible next moves from the current game state `state`. These values are computed by the `MCTS` class, and are used to select the next move.
+
+### Monte Carlo Tree Search
+
+The Monte Carlo Tree Search (MCTS) algorithm is used for AlphaZero to make a decision. It is a tree-search algorithm, where the tree is built from the root node, and the leaf nodes are evaluated using a neural network. The tree is expanded by selecting the best child node, and the process is repeated until a leaf node is reached. 
+
+#### Simulations
+
+For each simulation and starting from the root node, i.e., the current game state, the MCTS does the following:
+
+* **Pass the current game state to the neural network**: The neural network is given the current game state, and the output is the policy vector and the value of the current game state.
+
+* **Expand the tree by selecting the best node**: An action (i.e., a node) is selected such that it maximizes the following expression among all the possible actions:
+
+$$\frac{w}{n}+C_{puct}\cdot p\cdot\frac{\sqrt{N}}{1+n}$$,
+
+where `w` is the total value of the node, `n` is the number of visits to the node, `p` is the prior probability of selecting the node, `C_puct` is a constant determining the level of exploration, and `N` is the total number of visits made to nodes in the tree at the same level (i.e., the nodes in the `children` list from the parent node).
+
+* **Back-propagate the value of the leaf node**: The value of the leaf node is the value of the game state, which is the value of the game state after the player has made the action. The value of the leaf node is then propagated back up the tree, updating the values of the nodes (along the path from the leaf node to the root node). The value of the leaf node is then used to update the value of the parent node. The process is repeated until the root node is reached. Along the way, the number of visits to the node is updated, and the value alternates between positive and negative to indicate the perspective of the player.
+
+#### Move selection
+
+After the simulations are completed, the best node is selected by selecting the node:
+* with the highest number of visits (i.e., the node with the highest `n` value) if playing deterministically, i.e., with a temperature of 0.
+* according to the distribution issued from $n^{\frac{1}{T}}$ among the children if playing stochastically, with a temperature of 1; the latter is the default, and is used to control the exploration.
+
+Important note: In this MCTS version, the tree is discarded after the simulations are completed. This has been done to have a more functional (in terms of paradigm) implementation, hence limiting side effects.
+
+### Network
+
+The network is totally based on DeepMind's AlphaGo Zero implementation.
+
+However, the network is modified to fit the needs of this project, the hardware not even being close to the one used in the original implementation. As a result, the network uses :
+* 64 filters in the convolutional layers instead of the original 256
+* 9 residual blocks instead of the original 19 to 39
+* A game stack of depth 4 per player instead of the original 8 (that means the input layer is of size (9, 9, 9) instead of (9, 9, 17))
+
+### Training
+
+TBC
+
+### Hyper-parameters
+
+TBC
+
+
 ## Results
+
+### Hardware used
+
+The unsupervised learning process was performed on an NVIDIA GTX 1660 Super GPU and a Ryzen 5 3600 CPU. This is an important point to take into account when using this project, as the CPU frequency greatly influences the MCTS search speed, and the GPU the training and fast-forward speed.
+
+### Training length
+
+How long has the unsupervised learning process been running obviously influences the final result. The unsupervised learning process has been run for about X iterations, i.e., X hours.
+
+### Final model win rate's against the random agent
+
+TBA
+
+### Training loss and accuracy
+
+TBA
 
 ## References
 

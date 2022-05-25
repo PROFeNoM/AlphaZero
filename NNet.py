@@ -124,6 +124,6 @@ class NNet:
 
 if __name__ == '__main__':
     pass
-    #with open('./data/1653430470.213831.npy', mode='rb') as f:
+    # with open('./data/1653430470.213831.npy', mode='rb') as f:
     #    history = pickle.load(f)
     #    NNet().train(history, './model/best.h5')
