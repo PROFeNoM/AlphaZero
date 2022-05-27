@@ -116,7 +116,7 @@ python Train.py
 ```
 Hyper-parameters can be changed in the `Config.py` file. This process should iteratively strengthen the `best.h5` model.
 
-_Nota Bene_: This process can take a while to complete if using a CPU-only environnement.
+_Nota Bene_: This process can take a while to complete if using a CPU-only environnement. On a GTX 1660 Super + Ryzen 5 3600, it took about 2.5 hours per iterations. The output of such iterations can be seen in the `log_example.txt` file.
 
 ### Comparison to the random agent
 
@@ -124,6 +124,8 @@ The best model can be compared to the random agent, using the following command:
 ```shell
 python CompareToRandom.py
 ```
+
+_Nota Bene_: Comparison takes about 10 minutes on a GTX 1660 Super + Ryzen 5 3600.
 
 ## Implementation details
 
@@ -220,13 +222,13 @@ The unsupervised learning process was performed on an NVIDIA GTX 1660 Super GPU 
 
 How long has the unsupervised learning process been running obviously influences the final result. The unsupervised learning process has been run for about X iterations, i.e., X hours.
 
-### Final model win rate's against the random agent
+### Trained agent win rate's against the random agent
 
-TBA
+![Win rate against random agent](win_rate.png)
 
-### Training loss and accuracy
+### Training loss
 
-TBA
+![Training loss](training_loss.png)
 
 ## References
 
