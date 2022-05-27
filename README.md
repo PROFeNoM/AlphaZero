@@ -12,6 +12,7 @@ Simple Reinforcement Learning for the 9x9 Go board game with AlphaZero, based on
 * `SelfPlay.py`: Generate neural network input features playing games with currently the best agent to be used in the unsupervised learning process.
 * `Train.py`: Reinforcement learning training procedure.
 * `Config.py`: Configuration file used to set the hyper-parameters.
+* `AlphaZeroPlayer.py`: AlphaZero player implementation to be used for the project tournament.
 
 ### Supervised learning
 
@@ -21,7 +22,17 @@ Simple Reinforcement Learning for the 9x9 Go board game with AlphaZero, based on
 ### Open-source
 
 * `features.py` & `go.py`: Open-source go board game implementation _as is_ from Brian Lee & Andrew Jackson (https://github.com/tensorflow/minigo).
-* `Gnugo.py`: Connection with the Go Text Protocol of GNU Go implementation from Laurent Simon.
+
+### Project-related
+
+The following files are from the project package, from Laurent Simon:
+
+* `Gnugo.py`: Connection with the Go Text Protocol of GNU Go implementation.
+* `Goban.py`: Go board game implementation.
+* `gnugoPlayer.py`: GNU Go player implementation.
+* `playerInterface.py`: Player interface for the leaderboard.
+* `randomPlayer.py`: Random player implementation.
+* `namedGame.py`: Allows to play a game between two agents using the player interface.
 
 ## Requirements
 
