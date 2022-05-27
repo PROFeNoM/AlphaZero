@@ -43,15 +43,19 @@ def name_to_coord(name):
     if name == 'PASS':
         return None
     col = indexLetters[name[0]]
-    row = int(name[1:]) - 1
+    row = go.N - int(name[1:])
     return row, col
 
 
 def coord_to_flat(coord):
+    if coord is None:
+        return go.N * go.N
     return coord[0] * go.N + coord[1]
 
 
 def flat_to_coord(flat):
+    if flat == go.N * go.N:
+        return None
     return flat // go.N, flat % go.N
 
 

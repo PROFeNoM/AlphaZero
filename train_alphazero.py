@@ -5,7 +5,7 @@ import numpy as np
 import pickle
 from NNet import NNet, opt, history_logger
 
-TRAINING_EPOCHS = 100
+TRAINING_EPOCHS = 50
 
 
 def load_samples():
@@ -31,9 +31,9 @@ def train_network():
     print("Network compiled.")
 
     def step_decay(epoch):
-        x = 1e-2
-        if epoch >= 50: x = 1e-3
-        if epoch >= 80: x = 1e-4
+        x = 0.05
+        if epoch >= 20: x = 1e-2
+        if epoch >= 40: x = 1e-3
         return x
 
     lr_decay = LearningRateScheduler(step_decay)

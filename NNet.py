@@ -24,7 +24,7 @@ from Config import NETWORK_FILTERS, \
     TRAINING_LOG_PATH, \
     TRAINING_EPOCHS
 
-opt = SGD(learning_rate=0.001, momentum=0.9)
+opt = SGD(learning_rate=0.01, momentum=0.9)
 history_logger = CSVLogger(TRAINING_LOG_PATH, separator=',', append=True)
 
 
@@ -109,7 +109,7 @@ class NNet:
         model = load_model(model_path)
         model.compile(loss={'v': 'mean_squared_error', 'pi': 'categorical_crossentropy'},
                       optimizer=opt,
-                      metrics=['accuracy'], )
+                      metrics=['accuracy'])
 
         model.fit(x, [y_p, y_v],
                   batch_size=32,
