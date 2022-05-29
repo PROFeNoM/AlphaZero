@@ -1,5 +1,6 @@
 from cmath import sqrt
 
+import keras
 import numpy as np
 
 from go import Position, N
@@ -13,14 +14,14 @@ def get_legal_actions(moves):
     return [i for i, is_legal in enumerate(moves) if is_legal]
 
 
-def flat_to_coord(flat):
+def flat_to_coord(flat: int) -> (int, int):
     if flat == N * N:
         return None
     return flat // N, flat % N
 
 
 class Node:
-    def __init__(self, state: Position, model, p):
+    def __init__(self, state: Position, model: keras.Model, p: float):
         self.state = state
         self.model = model
         self.p = p
@@ -47,7 +48,7 @@ class Node:
 
         return pi, v
 
-    def _add_child(self, coord, p, noise):
+    def _add_child(self, coord: (int, int), p: float, noise: float):
         self.children.append(Node(
             self.state.play_move(coord),
             self.model,
@@ -98,7 +99,7 @@ class Node:
             return v
 
 
-def get_action_prob(model, state: Position, temperature):
+def get_action_prob(model: keras.Model, state: Position, temperature: float):
     root: Node = Node(state, model, 0)
 
     for _ in range(min(MCTS_SIMULATIONS, len(get_legal_actions(state.all_legal_moves())) * 4)):
@@ -126,8 +127,8 @@ def get_action_prob(model, state: Position, temperature):
     return scores
 
 
-def get_action_coord(model):
-    def action_fn(state):
+def get_action_coord(model: keras.Model):
+    def action_fn(state: Position):
         scores = get_action_prob(model, state, 0)
         action = np.random.choice(get_legal_actions(state.all_legal_moves()), p=scores)
         #action = get_legal_actions(state.all_legal_moves())[np.argmax(scores)]
