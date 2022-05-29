@@ -23,6 +23,7 @@ for row in df.itertuples():
         iteration += 1
     else:
         n_epochs += 1
+epochs[iteration] = n_epochs
 
 data = {}  # iteration -> training loss
 

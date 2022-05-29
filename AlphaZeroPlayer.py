@@ -29,7 +29,7 @@ class myPlayer(PlayerInterface):
 
     def __init__(self):
         self.state: Position = Position()
-        self.model = load_model('./model/best.h5')
+        self.model = load_model('./model/trained.h5')
         self.action_model_fn = get_action_coord(self.model)
         self.color = None
 

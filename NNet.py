@@ -24,7 +24,7 @@ from Config import NETWORK_FILTERS, \
     TRAINING_LOG_PATH, \
     TRAINING_EPOCHS
 
-opt = SGD(learning_rate=0.01, momentum=0.9)
+opt = SGD(learning_rate=0.05, momentum=0.9)
 history_logger = CSVLogger(TRAINING_LOG_PATH, separator=',', append=True)
 
 

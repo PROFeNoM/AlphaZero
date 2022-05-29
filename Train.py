@@ -23,7 +23,7 @@ class Train:
         history = self.sp.generate_data()
         self.nn.train(history, './model/best.h5')
         wins, draw, loses = self.arena.play_games()
-        if wins / (wins + loses) > self.save_threshold:
+        if wins / (wins + loses) >= self.save_threshold:
             copy('./model/latest.h5', './model/best.h5')
             print("Saved new model")
 

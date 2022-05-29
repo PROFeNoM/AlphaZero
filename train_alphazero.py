@@ -1,11 +1,10 @@
-from keras.callbacks import LearningRateScheduler
 from keras.models import load_model
 from keras import backend as K
 import numpy as np
 import pickle
 from NNet import NNet, opt, history_logger
 
-TRAINING_EPOCHS = 50
+TRAINING_EPOCHS = 30
 
 
 def load_samples():
@@ -30,21 +29,13 @@ def train_network():
                   metrics=['accuracy'])
     print("Network compiled.")
 
-    def step_decay(epoch):
-        x = 0.05
-        if epoch >= 20: x = 1e-2
-        if epoch >= 40: x = 1e-3
-        return x
-
-    lr_decay = LearningRateScheduler(step_decay)
-    print("Learning Rate Scheduler initialized.")
     epoch_count = TRAINING_EPOCHS
 
     model.fit(xs, [y_policies, y_values],
-              batch_size=2048,
+              batch_size=1024,
               epochs=epoch_count,
               verbose=1,
-              callbacks=[lr_decay, history_logger])
+              callbacks=[history_logger])
 
     model.save('./model/trained.h5')
 
