@@ -93,16 +93,24 @@ class IterativeDeepeningAlphaBeta:
         self.time_per_move = time_per_move
         self.eval_fn = eval_fn
         self.start_time = 0
+        self.transposition_table = {}  # hash -> {depth: int, score: float}
 
     def is_out_of_time(self):
         return time.monotonic() - self.start_time > self.time_per_move
 
     def alpha_beta(self, board: Board, depth: int, alpha: float, beta: float, maximizing_player: bool,
-                   point_of_view: int, activate_timer: bool = True):
+                   point_of_view: int, activate_timer: bool = True) -> float:
         if activate_timer and self.is_out_of_time():
             return self.eval_fn(board, point_of_view)
+        transposition = self.transposition_table.get(str(board._currentHash))
+        if transposition is not None and transposition['depth'] >= depth:
+            sys.stderr.write("\r.")
+            return transposition['score']
         if depth == 0 or board.is_game_over():
-            return self.eval_fn(board, point_of_view)
+            utility = self.eval_fn(board, point_of_view)
+            self.transposition_table[str(board._currentHash)] = {'depth': depth, 'score': utility}
+            return utility
+
         if maximizing_player:
             best_value = -float('inf')
             for move in board.legal_moves():
@@ -113,6 +121,7 @@ class IterativeDeepeningAlphaBeta:
                 alpha = max(alpha, best_value)
                 if beta <= alpha:
                     break
+            self.transposition_table[str(board._currentHash)] = {'depth': depth, 'score': best_value}
             return best_value
         else:
             best_value = float('inf')
@@ -124,6 +133,7 @@ class IterativeDeepeningAlphaBeta:
                 beta = min(beta, best_value)
                 if beta <= alpha:
                     break
+            self.transposition_table[str(board._currentHash)] = {'depth': depth, 'score': best_value}
             return best_value
 
     def get_action(self, board: Board, color_to_play: int):
@@ -136,7 +146,8 @@ class IterativeDeepeningAlphaBeta:
         current_depth_evaluations: Dict[int, float] = {}  # {move: evaluation}
         depth = 1
         prev_best_move = legal_moves[0]
-        while True:
+        while depth <= 20:
+            self.transposition_table = {}
             sys.stderr.write(f"Prev: {prev_best_move}\n")
             best_move = legal_moves[0]
             best_value = -float('inf')
@@ -162,12 +173,15 @@ class IterativeDeepeningAlphaBeta:
             prev_best_move = best_move
             # Update depth
             depth += 1
+        return prev_best_move
 
 
 class myPlayer(PlayerInterface):
     def __init__(self):
         self.state: Board = Board()
-        self.player = IterativeDeepeningAlphaBeta(time_per_move=7, eval_fn=eval_fn)
+        self.player_early = IterativeDeepeningAlphaBeta(time_per_move=7, eval_fn=eval_fn)
+        self.player_mid = IterativeDeepeningAlphaBeta(time_per_move=20, eval_fn=eval_fn)
+        self.player_late = IterativeDeepeningAlphaBeta(time_per_move=7, eval_fn=eval_fn)
         self.color = None
         self.turn = 0
 
@@ -181,8 +195,12 @@ class myPlayer(PlayerInterface):
 
         if self.turn < 20:
             move = Board.name_to_flat(get_book_move(self.state))
+        elif self.turn < 60:
+            move = self.player_early.get_action(self.state, self.color)
+        elif self.turn < 120:
+            move = self.player_mid.get_action(self.state, self.color)
         else:
-            move = self.player.get_action(self.state, self.color)
+            move = self.player_late.get_action(self.state, self.color)
 
         self.state.push(move)
         return Board.flat_to_name(move)

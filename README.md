@@ -34,6 +34,10 @@ To respect the time limit, the search is iterated until the time limit (7 second
 
 Moreover, move ordering is used to speed up the search. This is done by ordering the moves based on the utility evaluations of the previous depth. Hence, cutoffs are more likely to happen, and a deeper search can be performed.
 
+#### Transposition table
+
+In order not to waste time on an evaluated subtree, a transposition table is used. This is a simple hashmap of the board state, with the score of the board as the value.
+
 #### AlphaBeta pruning
 
 To discover the best move, the search is performed in a depth-first manner, with the simple idea of pruning the branches that are not promising. This is done by keeping track of the alpha and beta values, and only exploring the branches that are promising.
