@@ -1,6 +1,6 @@
 import sys
 import time
-from random import choice
+from random import choice, shuffle
 
 from typing import Dict
 
@@ -28,6 +28,50 @@ def eval_fn(board: Board, point_of_view: int) -> float:
         return black_score - white_score
     else:
         return white_score - black_score
+
+
+POSITION_SCORE = [0, 0, 0, 0, 0, 0, 0, 0, 0,
+                  0, 1, 1, 1, 1, 1, 1, 1, 0,
+                  0, 1, 2, 2, 1, 2, 2, 1, 0,
+                  0, 1, 2, 1, 1, 1, 2, 1, 0,
+                  0, 1, 1, 1, 1, 1, 1, 1, 0,
+                  0, 1, 2, 1, 1, 1, 2, 1, 0,
+                  0, 1, 2, 2, 1, 2, 2, 1, 0,
+                  0, 1, 1, 1, 1, 1, 1, 1, 0,
+                  0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+
+def evaluate(board: Board, point_of_view: int) -> float:
+    """ Multivariate evaluation function. """
+    black_score, white_score = board.compute_score()
+    if board.is_game_over():
+        if black_score > white_score:
+            winner = Board._BLACK
+        elif black_score < white_score:
+            winner = Board._WHITE
+        else:
+            winner = Board._EMPTY
+
+        if winner == point_of_view:
+            return float('inf')
+        else:
+            return float('-inf')
+
+    score_feature = black_score - white_score if point_of_view == Board._BLACK else white_score - black_score
+
+    liberty_feature = 0
+    position_feature = 0
+    ennemy_color = Board._BLACK if point_of_view == Board._WHITE else Board._WHITE
+    for fcoord in range(len(board)):  # makes use of __len__
+        cell = board[fcoord]  # makes use of __getitem__
+        if cell == ennemy_color:
+            liberty_feature -= board._stringLiberties[board._getStringOfStone(fcoord)]
+            position_feature -= POSITION_SCORE[fcoord]
+        elif cell == point_of_view:
+            liberty_feature += board._stringLiberties[board._getStringOfStone(fcoord)]
+            position_feature += POSITION_SCORE[fcoord]
+
+    return score_feature * 3 + liberty_feature + position_feature * 3
 
 
 OPENINGS = {
@@ -79,7 +123,11 @@ def get_book_move(board: Board) -> str:
             return opening_moves[move_done]
     # If no opening found, return a random move.
     moves = board.legal_moves()
-    moves.remove(-1)
+    # remove edges
+    moves = [move
+             for move in moves
+             if (Board.flat_to_name(move)[0] not in "AJ") and (Board.flat_to_name(move)[1] not in "19")
+             ]
     move = choice(moves)
     return board.flat_to_name(move)
 
@@ -101,12 +149,16 @@ class IterativeDeepeningAlphaBeta:
     def alpha_beta(self, board: Board, depth: int, alpha: float, beta: float, maximizing_player: bool,
                    point_of_view: int, activate_timer: bool = True) -> float:
         if activate_timer and self.is_out_of_time():
-            return self.eval_fn(board, point_of_view)
+            return 0  # The return value is not used anyway in this case.
+
         transposition = self.transposition_table.get(str(board._currentHash))
         if transposition is not None and transposition['depth'] >= depth:
+            # Use the transposition table to speed up the search.
             sys.stderr.write("\r.")
             return transposition['score']
+
         if depth == 0 or board.is_game_over():
+            # We are at the leaf of the tree.
             utility = self.eval_fn(board, point_of_view)
             self.transposition_table[str(board._currentHash)] = {'depth': depth, 'score': utility}
             return utility
@@ -121,6 +173,7 @@ class IterativeDeepeningAlphaBeta:
                 alpha = max(alpha, best_value)
                 if beta <= alpha:
                     break
+            # Store the best value in the transposition table.
             self.transposition_table[str(board._currentHash)] = {'depth': depth, 'score': best_value}
             return best_value
         else:
@@ -133,6 +186,7 @@ class IterativeDeepeningAlphaBeta:
                 beta = min(beta, best_value)
                 if beta <= alpha:
                     break
+            # Store the best value in the transposition table.
             self.transposition_table[str(board._currentHash)] = {'depth': depth, 'score': best_value}
             return best_value
 
@@ -142,16 +196,21 @@ class IterativeDeepeningAlphaBeta:
         Move ordering is done after each depth.
         """
         self.start_time = time.monotonic()
+
         legal_moves = board.legal_moves()
+        shuffle(legal_moves)  # Randomize the order of the moves, so that the moves aren't always the same.
         current_depth_evaluations: Dict[int, float] = {}  # {move: evaluation}
         depth = 1
         prev_best_move = legal_moves[0]
-        while depth <= 20:
+
+        while depth <= 20: # Iterative deepening.
             self.transposition_table = {}
-            sys.stderr.write(f"Prev: {prev_best_move}\n")
             best_move = legal_moves[0]
             best_value = -float('inf')
+
+            sys.stderr.write(f"Prev: {prev_best_move}\n")
             sys.stderr.write(f"Depth: {depth}\n")
+
             # Analyze the current depth
             for move in legal_moves:
                 print(f"\rAnalyzing move: {move}", end="")
@@ -162,8 +221,10 @@ class IterativeDeepeningAlphaBeta:
                     sys.stderr.write(f"TO during search: {prev_best_move}\n")
                     return prev_best_move
                 current_depth_evaluations[move] = value
+
             # Order legal_moves according to the new evaluations
             legal_moves = sorted(legal_moves, key=lambda m: current_depth_evaluations[m], reverse=True)
+
             # Update best_move and best_value
             for move in legal_moves:
                 if current_depth_evaluations[move] > best_value:
@@ -171,17 +232,19 @@ class IterativeDeepeningAlphaBeta:
                     best_value = current_depth_evaluations[move]
             sys.stderr.write(f"Best move: {best_move}\n")
             prev_best_move = best_move
+
             # Update depth
             depth += 1
+
         return prev_best_move
 
 
 class myPlayer(PlayerInterface):
     def __init__(self):
         self.state: Board = Board()
-        self.player_early = IterativeDeepeningAlphaBeta(time_per_move=7, eval_fn=eval_fn)
-        self.player_mid = IterativeDeepeningAlphaBeta(time_per_move=20, eval_fn=eval_fn)
-        self.player_late = IterativeDeepeningAlphaBeta(time_per_move=7, eval_fn=eval_fn)
+        self.player_early = IterativeDeepeningAlphaBeta(time_per_move=7, eval_fn=evaluate)
+        self.player_mid = IterativeDeepeningAlphaBeta(time_per_move=20, eval_fn=evaluate)
+        self.player_late = IterativeDeepeningAlphaBeta(time_per_move=7, eval_fn=evaluate)  # Yes, it is the "same" as player_early. New instance for easier configuration.
         self.color = None
         self.turn = 0
 
