@@ -20,8 +20,9 @@ Simple tree search algorithm that uses alpha-beta pruning to find the best move,
 
 #### Heuristic
 
-During the early game (less than 20 moves), positional features, liberties and difference between scores are used to evaluate the board.
-During the remaining of the game, the heuristic used is the most basic one, which is based on the difference between scores, from the perspective of the agent.
+During the early game (less than 20 moves), _positional features_, liberties and difference between scores are used to evaluate the board.
+
+During the remaining of the game, the heuristic used is the most basic one, which is based on the difference between scores and the consideration of liberties on a relation 10:1, from the perspective of the agent.
 
 #### Openings
 
@@ -31,9 +32,9 @@ Fuseki's opening could have been used, but I'm not playing for the sake of the t
 
 #### Iterative deepening
 
-To respect the time limit, the search is iterated until the time limit (7 seconds) is reached. If the time limit is reached, the search is stopped and the best move from the previous depth is returned. It is worth mentioning that we force the search to be at least of depth 1.
+To respect the time limit, the search is iterated until the time limit (7s/20s per move for the early/mid game) is reached. If the time limit per move is reached, the search is stopped and the best move from the previous depth is returned. It is worth mentioning that we force the search to be at least of depth 1 during the early game.
 
-Moreover, move ordering is used to speed up the search. This is done by ordering the moves based on the utility evaluations of the previous depth. Hence, cutoffs are more likely to happen, and a deeper search can be performed.
+What's more, if less than 5 seconds are left to play out of the 15 minutes, the move returned is the one from a depth of 0, i.e., a direct evaluation of the move. 
 
 #### Transposition table
 
@@ -42,6 +43,8 @@ In order not to waste time on an evaluated subtree, a transposition table is use
 #### AlphaBeta pruning
 
 To discover the best move, the search is performed in a depth-first manner, with the simple idea of pruning the branches that are not promising. This is done by keeping track of the alpha and beta values, and only exploring the branches that are promising.
+
+Moreover, move ordering is used to speed up the search. This is done by ordering the moves based on the utility evaluations of the previous depth. Hence, cutoffs are more likely to happen, and a deeper search can be performed.
 
 ### Results
 
@@ -66,7 +69,7 @@ Simple Reinforcement Learning for the 9x9 Go board game with AlphaZero, based on
 
 #### Supervised learning
 
-* `dataset_builder.py`: Generate neural network input features from a dataset for supervised learning.
+* `buildDataset.py`: Generate neural network input features from a dataset for supervised learning.
 * `train_alphazero.py`: Train an initial model using the input features resulting from the dataset. 
 
 #### Open-source
@@ -83,6 +86,8 @@ The following files are from the project package, from Laurent Simon:
 * `playerInterface.py`: Player interface for the leaderboard.
 * `randomPlayer.py`: Random player implementation.
 * `namedGame.py`: Allows to play a game between two agents using the player interface.
+
+GNU Go's executable are also included in the project package, for convenience.
 
 ### Requirements
 
@@ -152,12 +157,12 @@ Unsupervised learning can be a long journey on traditional hardware. For this re
 
 **1.** Generate the dataset.
 ```shell
-python dataset_builder.py
+python buildDataset.py
 ```
 
 **2.** Train the model.
 ```shell
-python train_alphazero.py
+python supervisedLearning.py
 ```
 
 This procedure will generate an initial model `trained.h5` to start with, located under `model/`.
@@ -283,7 +288,9 @@ The unsupervised learning process was performed on an NVIDIA GTX 1660 Super GPU 
 
 #### Training length
 
-How long has the unsupervised learning process been running obviously influences the final result. The unsupervised learning process has been run for about X iterations, i.e., X hours.
+How long has the unsupervised learning process been running obviously influences the final result. The unsupervised learning process had been run for 10 iterations, i.e., ~24 hours. Below are the evolution of the win rate against the random agent and the loss.
+
+_Nota bene_: This isn't the model used by the AlphaZeroPlayer, as the supervised learning yielded (obviously, considering the training length) better win rate.
 
 #### Trained agent win rate's against the random agent
 

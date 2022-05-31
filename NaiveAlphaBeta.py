@@ -219,7 +219,7 @@ class myPlayer(PlayerInterface):
         self.player_fallback = IterativeDeepeningAlphaBeta(time_per_move=1000,
                                                            eval_fn=evaluate)  # For this player, time won't matter anyway, as we won't activate it.
         self.player_early = IterativeDeepeningAlphaBeta(time_per_move=7, eval_fn=eval_fn)
-        self.player_mid = IterativeDeepeningAlphaBeta(time_per_move=20, eval_fn=eval_fn)
+        self.player_mid = IterativeDeepeningAlphaBeta(time_per_move=25, eval_fn=eval_fn)
         self.color = None
         self.turn = 0
         self.activate_book = True

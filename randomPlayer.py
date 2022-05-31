@@ -31,8 +31,6 @@ class myPlayer(PlayerInterface):
 
         # New here: allows to consider internal representations of moves
         print("I am playing ", self._board.move_to_str(move))
-        print("My current board :")
-        self._board.prettyPrint()
         # move is an internal representation. To communicate with the interface I need to change if to a string
         return Goban.Board.flat_to_name(move)
 
