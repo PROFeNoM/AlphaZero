@@ -1,9 +1,9 @@
-import sys
 import time
-from random import choice, shuffle
-
+import gzip
+import json
 from typing import Dict
 
+from random import shuffle
 from Goban import Board
 from playerInterface import PlayerInterface
 
@@ -71,34 +71,27 @@ def evaluate(board: Board, point_of_view: int) -> float:
             liberty_feature += board._stringLiberties[board._getStringOfStone(fcoord)]
             position_feature += POSITION_SCORE[fcoord]
 
-    return score_feature * 3 + liberty_feature + position_feature * 3
+    return score_feature * 5 + liberty_feature * 2 + position_feature
 
 
-OPENINGS = {
-    "Orthodox": ["E5", "E3", "F4"],
-    "Curveball": ["E5", "E3", "F4", "F7"],
-    "Hand Fan": ["E5", "E3", "F4", "E7"],
-    "Windmill": ["E5", "E3", "F3", "F4", "E4", "G3", "F2", "D3"],
-    "Sword": ["E5", "E3", "E7", "E8"],
-    "Jump Attack": ["E5", "E3", "F5", "E7", "D3"],
-    "Cross Line": ["E5", "C7", "E7", "C5", "E3", "F5"],
-    "Soccer Juggling": ["E5", "E3", "D7"],
-    "Pendulum": ["E5", "F3", "G4"],
-    "Head Butt": ["E5", "E3", "E4"],
-    "New Orthodox": ["E6", "E4", "G5"],
-    "Slider": ["E6", "E4", "G5", "G3"],
-    "Secret Agent 033": ["E6", "E4", "G5", "G7"],
-    "Andromeda": ["E6", "E4", "G5", "C5", "C6", "G4"],
-    "White Slice": ["E6", "E4", "F4", "F3", "G4", "G3"],
-    "Boots": ["E6", "E3", "E4", "F3", "D3"],
-    "Zazen": ["E6", "E3", "E4", "F3", "F4", "D3", "D4"],
-    "Kodachi": ["E6", "E4", "E3"],
-    "Sea Fairy": ["E7", "E4", "E3"],
-    "Lunar Eclipse": ["F4", "D6", "C7"],
-    "Black Boomerang": ["F6", "D4", "E4", "E3", "D5", "C5", "E5"],
-    "Bean Throwing": ["F6", "D4", "E4", "E3", "F3", "D3", "D7"],
-    "Flower Fairy": ["F3", "D6", "D7"]
-}
+with gzip.open("samples-9x9.json.gz") as fz:
+    tables = json.loads(fz.read().decode("utf-8"))
+
+
+def search_in_tables(move_history):
+    len_history = len(move_history)
+    next_to_play = "black" if len_history % 2 == 0 else "white"
+    best_table = None
+    best_wr = -1
+    for table in tables:
+        if len_history >= table['depth']:
+            continue
+        if move_history == table['list_of_moves'][:len_history] \
+                and table[next_to_play + "_wins"] / table['rollouts'] > best_wr:
+            best_table = table
+            best_wr = table[next_to_play + "_wins"] / table['rollouts']
+
+    return best_table['list_of_moves'][len_history] if best_table else None
 
 
 def get_book_move(board: Board) -> str:
@@ -106,30 +99,8 @@ def get_book_move(board: Board) -> str:
     Return the next move from the opening book.
     """
     move_history = board._historyMoveNames
-    move_done = len(move_history)
-    # Look in OPENINGS for a same sequence of moves.
-    for opening_name, opening_moves in OPENINGS.items():
-        if move_done >= len(opening_moves):
-            continue
-        can_use_opening = True
-        for i in range(len(opening_moves)):
-            if i >= move_done:
-                break
-            if opening_moves[i] != move_history[i]:
-                can_use_opening = False
-                break
-        if can_use_opening:
-            print("Using opening:", opening_name)
-            return opening_moves[move_done]
-    # If no opening found, return a random move.
-    moves = board.legal_moves()
-    # remove edges
-    moves = [move
-             for move in moves
-             if (Board.flat_to_name(move)[0] not in "AJ") and (Board.flat_to_name(move)[1] not in "19")
-             ]
-    move = choice(moves)
-    return board.flat_to_name(move)
+    move = search_in_tables(move_history)
+    return move
 
 
 class IterativeDeepeningAlphaBeta:
@@ -154,7 +125,6 @@ class IterativeDeepeningAlphaBeta:
         transposition = self.transposition_table.get(str(board._currentHash))
         if transposition is not None and transposition['depth'] >= depth:
             # Use the transposition table to speed up the search.
-            sys.stderr.write("\r.")
             return transposition['score']
 
         if depth == 0 or board.is_game_over():
@@ -190,7 +160,7 @@ class IterativeDeepeningAlphaBeta:
             self.transposition_table[str(board._currentHash)] = {'depth': depth, 'score': best_value}
             return best_value
 
-    def get_action(self, board: Board, color_to_play: int):
+    def get_action(self, board: Board, color_to_play: int, max_depth: int = 20, activate_timer: bool = True) -> int:
         """
         Returns the best action for the current board using iterative deepening on alpha beta pruning.
         Move ordering is done after each depth.
@@ -200,25 +170,22 @@ class IterativeDeepeningAlphaBeta:
         legal_moves = board.legal_moves()
         shuffle(legal_moves)  # Randomize the order of the moves, so that the moves aren't always the same.
         current_depth_evaluations: Dict[int, float] = {}  # {move: evaluation}
-        depth = 1
+        depth = 0
         prev_best_move = legal_moves[0]
 
-        while depth <= 20: # Iterative deepening.
+        while depth <= max_depth:  # Iterative deepening.
             self.transposition_table = {}
             best_move = legal_moves[0]
             best_value = -float('inf')
 
-            sys.stderr.write(f"Prev: {prev_best_move}\n")
-            sys.stderr.write(f"Depth: {depth}\n")
-
             # Analyze the current depth
             for move in legal_moves:
-                print(f"\rAnalyzing move: {move}", end="")
                 board.push(move)
-                value = self.alpha_beta(board, depth, -float('inf'), float('inf'), False, color_to_play, depth != 1)
+                value = self.alpha_beta(board, depth, -float('inf'), float('inf'), False, color_to_play,
+                                        activate_timer and depth != 1)
                 board.pop()
                 if self.is_out_of_time() and depth != 1:
-                    sys.stderr.write(f"TO during search: {prev_best_move}\n")
+                    print(f"Played until depth {depth - 1}")
                     return prev_best_move
                 current_depth_evaluations[move] = value
 
@@ -230,26 +197,47 @@ class IterativeDeepeningAlphaBeta:
                 if current_depth_evaluations[move] > best_value:
                     best_move = move
                     best_value = current_depth_evaluations[move]
-            sys.stderr.write(f"Best move: {best_move}\n")
             prev_best_move = best_move
 
             # Update depth
             depth += 1
-
+        print(f"Played to depth {depth - 1}")
         return prev_best_move
 
 
 class myPlayer(PlayerInterface):
     def __init__(self):
         self.state: Board = Board()
-        self.player_early = IterativeDeepeningAlphaBeta(time_per_move=7, eval_fn=evaluate)
-        self.player_mid = IterativeDeepeningAlphaBeta(time_per_move=20, eval_fn=evaluate)
-        self.player_late = IterativeDeepeningAlphaBeta(time_per_move=7, eval_fn=evaluate)  # Yes, it is the "same" as player_early. New instance for easier configuration.
+        self.player_fallback = IterativeDeepeningAlphaBeta(time_per_move=1000,
+                                                           eval_fn=evaluate)  # For this player, time won't matter anyway, as we won't activate it.
+        self.player_early = IterativeDeepeningAlphaBeta(time_per_move=7, eval_fn=eval_fn)
+        self.player_mid = IterativeDeepeningAlphaBeta(time_per_move=20, eval_fn=eval_fn)
+        self.player_late = IterativeDeepeningAlphaBeta(time_per_move=7,
+                                                       eval_fn=eval_fn)  # Yes, it is the "same" as player_early. New instance for easier configuration.
         self.color = None
         self.turn = 0
+        self.activate_book = True
 
     def getPlayerName(self):
         return "Dans La Légende"
+
+    def _getMove(self, state: Board, color: int, player: IterativeDeepeningAlphaBeta,
+                 max_depth: int = 20, activate_timer: bool = True) -> int:
+        """
+        Returns the best move for the current board using iterative deepening on alpha beta pruning.
+        Move ordering is done after each depth.
+        """
+        if self.activate_book:
+            move = get_book_move(state)
+        else:
+            move = None
+
+        if move is None:
+            self.activate_book = False  # Don't use the book in the following turns.
+            return player.get_action(state, color, max_depth=max_depth, activate_timer=activate_timer)
+        else:
+            print("Using book move.")
+            return Board.name_to_flat(move)
 
     def getPlayerMove(self):
         self.turn += 1
@@ -257,13 +245,13 @@ class myPlayer(PlayerInterface):
             return "PASS"
 
         if self.turn < 20:
-            move = Board.name_to_flat(get_book_move(self.state))
-        elif self.turn < 60:
-            move = self.player_early.get_action(self.state, self.color)
+            move = self._getMove(self.state, self.color, self.player_fallback, max_depth=0, activate_timer=False)
+        elif self.turn < 50:
+            move = self._getMove(self.state, self.color, self.player_early)
         elif self.turn < 120:
-            move = self.player_mid.get_action(self.state, self.color)
+            move = self._getMove(self.state, self.color, self.player_mid)
         else:
-            move = self.player_late.get_action(self.state, self.color)
+            move = self._getMove(self.state, self.color, self.player_late)
 
         self.state.push(move)
         return Board.flat_to_name(move)
@@ -278,7 +266,10 @@ class myPlayer(PlayerInterface):
         self.turn = 0
 
     def endGame(self, winner):
-        pass
+        if winner == self.color:
+            print("Plus je me rapproche du sommet, plus j’entends le ciel qui gronde.")
+        else:
+            print("Recherche du bonheur, j’m’enfonce dans le vide.")
 
 
 if __name__ == "__main__":

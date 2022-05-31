@@ -44,30 +44,14 @@ class NNet:
 
         input = Input(shape=self.network_input_shape)
 
-        x = self.conv(self.network_filters)(input)
-        x = BatchNormalization()(x)
-        x = Activation('relu')(x)
+        x = self.convolutional_block(input)
 
         for i in range(self.network_residual_num):
-            x = self.residual_block()(x)
+            x = self.residual_block(x)
 
-        p = self.conv_size_one(2)(x)
-        p = BatchNormalization()(p)
-        p = Activation('relu')(p)
+        p = self.policy_head(x)
 
-        p = GlobalAveragePooling2D()(p)
-
-        p = Dense(self.network_output_size, kernel_regularizer=l2(1e-4),
-                  activation='softmax', name='pi')(p)
-
-        v = self.conv_size_one(1)(x)
-        v = BatchNormalization()(v)
-        v = Activation('relu')(v)
-
-        v = GlobalAveragePooling2D()(v)
-
-        v = Dense(1, kernel_regularizer=l2(1e-4))(v)
-        v = Activation('tanh', name='v')(v)
+        v = self.value_head(x)
 
         model = Model(inputs=input, outputs=[p, v])
 
@@ -77,27 +61,45 @@ class NNet:
         clear_session()
         del model
 
-    def conv(self, filters):
-        return Conv2D(filters, 3, padding='same',
-                      kernel_initializer='he_normal', kernel_regularizer=l2(1e-4))
+    def convolutional_block(self, input):
+        x = Conv2D(self.network_filters, 3, padding='same',
+                   kernel_initializer='he_normal', kernel_regularizer=l2(1e-4))(input)
+        x = BatchNormalization()(x)
+        x = Activation('relu')(x)
+        return x
 
-    def conv_size_one(self, filters):
-        return Conv2D(filters, 1, padding='same',
-                      kernel_initializer='he_normal', kernel_regularizer=l2(1e-4))
+    def value_head(self, x):
+        v = Conv2D(1, 1, padding='same',
+                   kernel_initializer='he_normal', kernel_regularizer=l2(1e-4))(x)
+        v = BatchNormalization()(v)
+        v = Activation('relu')(v)
+        v = GlobalAveragePooling2D()(v)
+        v = Dense(1, kernel_regularizer=l2(1e-4))(v)
+        v = Activation('tanh', name='v')(v)
+        return v
 
-    def residual_block(self):
-        def f(x):
-            sc = x
-            x = self.conv(self.network_filters)(x)
-            x = BatchNormalization()(x)
-            x = Activation('relu')(x)
-            x = self.conv(self.network_filters)(x)
-            x = BatchNormalization()(x)
-            x = Add()([x, sc])
-            x = Activation('relu')(x)
-            return x
+    def policy_head(self, x):
+        p = Conv2D(2, 1, padding='same',
+                   kernel_initializer='he_normal', kernel_regularizer=l2(1e-4))(x)
+        p = BatchNormalization()(p)
+        p = Activation('relu')(p)
+        p = GlobalAveragePooling2D()(p)
+        p = Dense(self.network_output_size, kernel_regularizer=l2(1e-4),
+                  activation='softmax', name='pi')(p)
+        return p
 
-        return f
+    def residual_block(self, x):
+        sc = x
+        x = Conv2D(self.network_filters, 3, padding='same',
+                   kernel_initializer='he_normal', kernel_regularizer=l2(1e-4))(x)
+        x = BatchNormalization()(x)
+        x = Activation('relu')(x)
+        x = Conv2D(self.network_filters, 3, padding='same',
+                   kernel_initializer='he_normal', kernel_regularizer=l2(1e-4))(x)
+        x = BatchNormalization()(x)
+        x = Add()([x, sc])
+        x = Activation('relu')(x)
+        return x
 
     def train(self, data, model_path):
         x, y_p, y_v = zip(*data)

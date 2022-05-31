@@ -20,11 +20,12 @@ Simple tree search algorithm that uses alpha-beta pruning to find the best move,
 
 #### Heuristic
 
-The heuristic used is the most basic one, which is based on the difference between scores, from the perspective of the agent. 
+During the early game (less than 20 moves), positional features, liberties and difference between scores are used to evaluate the board.
+During the remaining of the game, the heuristic used is the most basic one, which is based on the difference between scores, from the perspective of the agent.
 
 #### Openings
 
-Because it doesn't make any sense to waste time on an alpha-beta search of depth 1 during the early game, opening moves (https://forums.online-go.com/t/weird-and-wonderful-9x9-openings/20520/39) are used - if they are available, else a random move - to speed up the search.
+Because it doesn't make any sense to waste time on an alpha-beta search of depth 1 during the early game, moves are taken - if they exist - from the samples provided, else, an AlphaBeta search of depth 0 is performed, since GNU Go's moves are obviously better crafted.
 
 Fuseki's opening could have been used, but I'm not playing for the sake of the tournament.
 
@@ -205,7 +206,9 @@ The node also contains a list of child nodes `children`, which are the possible 
 
 #### Monte Carlo Tree Search
 
-The Monte Carlo Tree Search (MCTS) algorithm is used for AlphaZero to make a decision. It is a tree-search algorithm, where the tree is built from the root node, and the leaf nodes are evaluated using a neural network. The tree is expanded by selecting the best child node, and the process is repeated until a leaf node is reached. 
+The Monte Carlo Tree Search (MCTS) algorithm is used for AlphaZero to make a decision. It is a tree-search algorithm, where the tree is built from the root node, and the leaf nodes are evaluated using a neural network. The tree is expanded by selecting the best child node, and the process is repeated until a leaf node is reached.
+
+However, because of the hardware used and the lack of parallelism, in this version the MCTS algorithm only runs for at most 150 simulations, which is too low to find great move/to learn during the early game. At least ~4.5 times the number of legal moves should be simulated. That is why the agent performs quite well in the end-game, but really poorly during the other phases.
 
 _Simulations_
 
