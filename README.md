@@ -32,7 +32,7 @@ Fuseki's opening could have been used, but I'm not playing for the sake of the t
 
 #### Iterative deepening
 
-To respect the time limit, the search is iterated until the time limit (7s/20s per move for the early/mid game) is reached. If the time limit per move is reached, the search is stopped and the best move from the previous depth is returned. It is worth mentioning that we force the search to be at least of depth 1 during the early game.
+To respect the time limit, the search is iterated until the time limit (7s/25s per move for the early/mid game) is reached. If the time limit per move is reached, the search is stopped and the best move from the previous depth is returned. It is worth mentioning that we force the search to be at least of depth 1 during the early game.
 
 What's more, if less than 5 seconds are left to play out of the 15 minutes, the move returned is the one from a depth of 0, i.e., a direct evaluation of the move. 
 
