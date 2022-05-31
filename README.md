@@ -1,6 +1,6 @@
 # Artificial Intelligence applied to Go
 
-_Alexandre Choura, Radouane Ouriha_
+_Alexandre Choura, Radouane Ouriha, Yassine Mougou_
 
 [Project Repository](https://github.com/PROFeNoM/AlphaZero)
 
