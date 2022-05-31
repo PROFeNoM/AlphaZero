@@ -72,7 +72,7 @@ Simple Reinforcement Learning for the 9x9 Go board game with AlphaZero, based on
 #### Supervised learning
 
 * `buildDataset.py`: Generate neural network input features from a dataset for supervised learning.
-* `train_alphazero.py`: Train an initial model using the input features resulting from the dataset. 
+* `supervisedLearning.py`: Train an initial model using the input features resulting from the dataset. 
 
 #### Open-source
 
