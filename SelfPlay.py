@@ -50,9 +50,11 @@ class SelfPlay:
             number_of_moves += 1
         # print(f"Number of moves: {number_of_moves}")
         v = state.result()
+        print('')
         for i in range(len(game_history)):
-            game_history[i][2] = v
-            v *= -1
+            if v == 1 and i % 2 == 0: game_history[i][2] = 1
+            elif v == -1 and i % 2 == 1: game_history[i][2] = 1
+            else: game_history[i][2] = -1
 
         return game_history
 
@@ -67,6 +69,7 @@ class SelfPlay:
         for _ in tqdm(range(SELFPLAY_GAMES), desc="Self play"):
             samples = self._play_game()
             self.history.extend(samples)
+            print('')
 
         self._save_history()
         clear_session()
