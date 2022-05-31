@@ -2,6 +2,8 @@
 
 _Alexandre Choura, Radouane Ouriha_
 
+[Project Repository](https://github.com/PROFeNoM/AlphaZero)
+
 For this project, two players have been implemented:
 - An Alpha-Beta based agent using a naive heuristic with iterative deepening
 - A Monte Carlo Tree Search based agent using AlphaZero methods
