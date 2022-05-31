@@ -24,10 +24,18 @@ def eval_fn(board: Board, point_of_view: int) -> float:
         else:
             return float('-inf')
 
-    if point_of_view == Board._BLACK:
-        return black_score - white_score
-    else:
-        return white_score - black_score
+    score_feature = black_score - white_score if point_of_view == Board._BLACK else white_score - black_score
+
+    liberty_feature = 0
+    ennemy_color = Board._BLACK if point_of_view == Board._WHITE else Board._WHITE
+    for fcoord in range(len(board)):  # makes use of __len__
+        cell = board[fcoord]  # makes use of __getitem__
+        if cell == ennemy_color:
+            liberty_feature -= board._stringLiberties[board._getStringOfStone(fcoord)]
+        elif cell == point_of_view:
+            liberty_feature += board._stringLiberties[board._getStringOfStone(fcoord)]
+
+    return score_feature * 10 + liberty_feature
 
 
 POSITION_SCORE = [0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -212,11 +220,10 @@ class myPlayer(PlayerInterface):
                                                            eval_fn=evaluate)  # For this player, time won't matter anyway, as we won't activate it.
         self.player_early = IterativeDeepeningAlphaBeta(time_per_move=7, eval_fn=eval_fn)
         self.player_mid = IterativeDeepeningAlphaBeta(time_per_move=20, eval_fn=eval_fn)
-        self.player_late = IterativeDeepeningAlphaBeta(time_per_move=7,
-                                                       eval_fn=eval_fn)  # Yes, it is the "same" as player_early. New instance for easier configuration.
         self.color = None
         self.turn = 0
         self.activate_book = True
+        self.time_left = 15 * 60
 
     def getPlayerName(self):
         return "Dans La Légende"
@@ -244,15 +251,19 @@ class myPlayer(PlayerInterface):
         if self.state.is_game_over():
             return "PASS"
 
-        if self.turn < 20:
+        start_time = time.monotonic()
+        if self.time_left < 5:
+            move = self._getMove(self.state, self.color, self.player_fallback, max_depth=0, activate_timer=False)
+        elif self.turn < 20:
             move = self._getMove(self.state, self.color, self.player_fallback, max_depth=0, activate_timer=False)
         elif self.turn < 50:
             move = self._getMove(self.state, self.color, self.player_early)
-        elif self.turn < 120:
-            move = self._getMove(self.state, self.color, self.player_mid)
         else:
-            move = self._getMove(self.state, self.color, self.player_late)
+            move = self._getMove(self.state, self.color, self.player_mid)
 
+        end_time = time.monotonic()
+        self.time_left -= (end_time - start_time)
+        print("Time left:", self.time_left)
         self.state.push(move)
         return Board.flat_to_name(move)
 
